@@ -1,0 +1,461 @@
+{
+  "sourceDate": "2026-11-11",
+  "sequencingTypes": [
+    "Third-generation transcriptome",
+    "ATAC-seq",
+    "ChIP-seq",
+    "WGBS",
+    "BS-seq candidate",
+    "Single-cell RNA-seq"
+  ],
+  "species": {
+    "pineapple": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA393610",
+        "title": "Ananas comosus Epigenomics",
+        "platform": "PACBIO_SMRT",
+        "context": "茎、时期",
+        "runs": [
+          "SRR5816603"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA494788",
+        "title": "Ananas comosus var. bracteatus Raw sequence reads full length raw data",
+        "platform": "PACBIO_SMRT",
+        "context": "果实、根、茎、发育、时期",
+        "runs": [
+          "SRR7968065",
+          "SRR7968066",
+          "SRR7968067",
+          "SRR7968068",
+          "SRR7968069"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "BS-seq candidate",
+        "bioproject": "PRJEB47580",
+        "title": "DNA methylome and transcriptome associate analysis of somaclone variation tissue in pineapple",
+        "platform": "ILLUMINA / Illumina HiSeq 2500",
+        "context": "叶、种子、发育、时期",
+        "runs": [
+          "ERR6769624",
+          "ERR6769623",
+          "ERR6769622",
+          "ERR6769621",
+          "ERR6769620",
+          "ERR6769619",
+          "ERR6769618",
+          "ERR6769617"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "BS-seq candidate",
+        "bioproject": "PRJNA393610",
+        "title": "Ananas comosus Epigenomics",
+        "platform": "ILLUMINA / Illumina HiSeq 2000",
+        "context": "茎、时期",
+        "runs": [
+          "SRR5816601",
+          "SRR5816602",
+          "SRR5816612"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "BS-seq candidate",
+        "bioproject": "PRJNA493186",
+        "title": "DNA methylome of pineapple",
+        "platform": "ILLUMINA / HiSeq X Ten",
+        "context": "叶",
+        "runs": [
+          "SRR7903983",
+          "SRR7903982",
+          "SRR7903981",
+          "SRR7903980"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "ChIP-seq",
+        "bioproject": "PRJNA682347",
+        "title": "Ananas comosus Raw sequence reads",
+        "platform": "ILLUMINA / Illumina HiSeq 2000",
+        "context": "果实、花/开花、根、叶、芽/茎尖、发育、时期",
+        "runs": [
+          "SRR13205789",
+          "SRR13205790",
+          "SRR13205797",
+          "SRR13205798",
+          "SRR13205799",
+          "SRR13205800"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "passionfruit": [],
+    "avocado": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA551932",
+        "title": "Single-Molecule Long-Read Sequencing of Avocado Provides Microsatellite Markers for Genetic Diversity in a Group of Avocado Germplasm",
+        "platform": "PACBIO_SMRT",
+        "context": "根、茎、中果皮、时期",
+        "runs": [
+          "SRR9614878"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA559779",
+        "title": "Transcriptome Profiling Provides Insight into the Genes in Carotenoid Biosynthesis during the Mesocarp and Seed Developmental Stages of Avocado (Persea americana)",
+        "platform": "PACBIO_SMRT",
+        "context": "根、茎、种子、中果皮、发育、时期",
+        "runs": [
+          "SRR9949186"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "sugarapple": [],
+    "guava": [],
+    "rambutan": [],
+    "wampee": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA894942",
+        "title": "Evolutionary dynamics of alternative splicing in citrus revealed by Nanopore RNAseq",
+        "platform": "OXFORD_NANOPORE",
+        "context": "果实、叶、时期",
+        "runs": [
+          "SRR22063090"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "dragonfruit": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA1192404",
+        "title": "An improved chromosome-level haplotype-resolved genome assembly and annotation of pitaya",
+        "platform": "OXFORD_NANOPORE",
+        "context": "果实、花、根、芽/茎尖、茎、果皮",
+        "runs": [
+          "SRR31557923"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA494058",
+        "title": "sequencing of full-length transcriptome of Pitaya",
+        "platform": "PACBIO_SMRT",
+        "context": "果实、果肉、发育、时期",
+        "runs": [
+          "SRR7945269",
+          "SRR7945270"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA659935",
+        "title": "Full-length transcriptome sequencing identified genes involved in circadian clock regulation and their rhythm expression pattern in red pitayas (Hylocereus costaricensis)",
+        "platform": "PACBIO_SMRT",
+        "context": "时期",
+        "runs": [
+          "SRR12539621",
+          "SRR12539622",
+          "SRR12539623",
+          "SRR12539624",
+          "SRR12539311",
+          "SRR12539312"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "ATAC-seq",
+        "bioproject": "PRJNA1117350",
+        "title": "Chromosome-level genome assembly of autotetraploid Selenicereus megalanthus and gaining genomic insights into the evolution of trait patterning in diploid and polyploid pitaya species",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "果皮、果肉、发育、时期",
+        "runs": [
+          "SRR29241363",
+          "SRR29241364",
+          "SRR29241368",
+          "SRR29241379"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Single-cell RNA-seq",
+        "bioproject": "PRJNA974579",
+        "title": "Single-Cell RNA sequencing of Hylocereus undatus",
+        "platform": "ILLUMINA / Illumina HiSeq 4000",
+        "context": "果实、时期",
+        "runs": [
+          "SRR24952452",
+          "SRR24952453",
+          "SRR24952454"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "litchi": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJDB44275",
+        "title": "lychee pangenome assembly sequencing and transcriptome data (PRJCA054959)",
+        "platform": "PACBIO_SMRT",
+        "context": "果实、花/开花、时期",
+        "runs": [
+          "DRR1120469"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "ATAC-seq",
+        "bioproject": "PRJNA1517728",
+        "title": "A Combined ATAC-seq and RNA-seq Analysis of the Flowering Regulatory Network in Litchi",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "花/开花、时期",
+        "runs": [
+          "SRR40371294",
+          "SRR40371295",
+          "SRR40371296",
+          "SRR40371297",
+          "SRR40371298",
+          "SRR40371299",
+          "SRR40371300",
+          "SRR40371301",
+          "SRR40371302",
+          "SRR40371303",
+          "SRR40371304",
+          "SRR40371305"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "BS-seq candidate",
+        "bioproject": "PRJNA916538",
+        "title": "Comparative genomics reveals the molecular basis of the synthesis of triterpenoid saponin and distinct flower morphology in Sapindaceae species",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "果实、花/开花、发育、时期",
+        "runs": [
+          "SRR22944103"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "stress",
+        "omicsType": "ChIP-seq",
+        "bioproject": "PRJNA1146184",
+        "title": "Chilling-induced epigenetic regulation of flowering in litchi",
+        "platform": "ILLUMINA / HiSeq X Ten",
+        "context": "低温、果实、花/开花、叶、时期",
+        "runs": [
+          "SRR30205684",
+          "SRR30205686",
+          "SRR30205687",
+          "SRR30205688",
+          "SRR30205689",
+          "SRR30205690",
+          "SRR30205691",
+          "SRR30205692",
+          "SRR30205693",
+          "SRR30205694",
+          "SRR30205695",
+          "SRR30205697",
+          "SRR30205698"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "stress",
+        "omicsType": "ChIP-seq",
+        "bioproject": "PRJNA1522176",
+        "title": "ChIP-seq (H3K27me3, H3K4me3) and RNA-seq of litchi 'Guiwei' shoot apical meristems under continuous and interrupted chilling",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "低温、果实、花/开花、分生组织、芽/茎尖、茎、时期",
+        "runs": [
+          "SRR40495407",
+          "SRR40495408",
+          "SRR40495409",
+          "SRR40495410",
+          "SRR40495411",
+          "SRR40495412",
+          "SRR40495413",
+          "SRR40495414",
+          "SRR40495415",
+          "SRR40495417",
+          "SRR40495418",
+          "SRR40495419",
+          "SRR40495420",
+          "SRR40495421"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Single-cell RNA-seq",
+        "bioproject": "PRJNA1490269",
+        "title": "Lychee single cell RNA sequencing",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "种子、胚/胚发生、发育、时期",
+        "runs": [
+          "SRR39464536",
+          "SRR39464537",
+          "SRR39464538",
+          "SRR39464539"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "Single-cell RNA-seq",
+        "bioproject": "PRJNA902319",
+        "title": "Litchi chinensis isolate:nucleus | cultivar:gw Assembly",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "时期",
+        "runs": [
+          "SRR22352084"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "durian": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA1126441",
+        "title": "Chromosome-Scale Haploid Genome Assembly of the Durian cultivar 'Kan Yao'",
+        "platform": "PACBIO_SMRT",
+        "context": "果实、花/开花、叶、茎、种子、果肉、时期",
+        "runs": [
+          "SRR31130142",
+          "SRR31130143",
+          "SRR31130144",
+          "SRR31130145",
+          "SRR31130146",
+          "SRR31130147",
+          "SRR31130148",
+          "SRR31130149",
+          "SRR31130150",
+          "SRR31130151",
+          "SRR31130152",
+          "SRR31130153",
+          "SRR31130154",
+          "SRR31130155",
+          "SRR31130156",
+          "SRR31130157",
+          "SRR31130158",
+          "SRR31130159"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "longan": [
+      {
+        "theme": "development",
+        "omicsType": "ATAC-seq",
+        "bioproject": "PRJNA792504",
+        "title": "Dimocarpus longan Genome sequencing and assembly",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "胚/胚发生、愈伤组织、时期、体细胞胚发生",
+        "runs": [
+          "SRR18028212",
+          "SRR18028213",
+          "SRR18028214"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "BS-seq candidate",
+        "bioproject": "PRJNA916538",
+        "title": "Comparative genomics reveals the molecular basis of the synthesis of triterpenoid saponin and distinct flower morphology in Sapindaceae species",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "果实、花/开花、发育、时期",
+        "runs": [
+          "SRR22944839"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "ChIP-seq",
+        "bioproject": "PRJNA792504",
+        "title": "Dimocarpus longan Genome sequencing and assembly",
+        "platform": "ILLUMINA / Illumina NovaSeq 6000",
+        "context": "胚/胚发生、愈伤组织、时期、体细胞胚发生",
+        "runs": [
+          "SRR18035253",
+          "SRR18035254",
+          "SRR18035255"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "mango": [
+      {
+        "theme": "development",
+        "omicsType": "Third-generation transcriptome",
+        "bioproject": "PRJNA1436038",
+        "title": "Transcriptome sequencing of \"Sensation\" mango from Hainan, China",
+        "platform": "PACBIO_SMRT",
+        "context": "成熟、叶、果皮、果肉、时期",
+        "runs": [
+          "SRR37603744"
+        ],
+        "status": "公开元数据/Run"
+      },
+      {
+        "theme": "development",
+        "omicsType": "BS-seq candidate",
+        "bioproject": "PRJNA797728",
+        "title": "leaf and five mango fruit ripening stages",
+        "platform": "ILLUMINA / Illumina HiSeq X",
+        "context": "果实、成熟、叶、时期",
+        "runs": [
+          "SRR21530824",
+          "SRR21530825",
+          "SRR21530826",
+          "SRR21530827",
+          "SRR21530828",
+          "SRR21530829",
+          "SRR21530830",
+          "SRR21530831",
+          "SRR21530832",
+          "SRR21530833",
+          "SRR21530834",
+          "SRR21530835"
+        ],
+        "status": "公开元数据/Run"
+      }
+    ],
+    "cashew": []
+  }
+}
