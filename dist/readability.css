@@ -1,0 +1,12 @@
+/* Unified readability layer for TFruitLLM 1.0 */
+body{font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.brand strong{font-size:20px}.brand small,.simple-brand small{font-size:9.5px;line-height:1.35}.site-header nav a{font-size:14px;font-weight:500}.nav-cta,.back-link{font-size:13px;font-weight:600}
+.eyebrow{font-size:11px;line-height:1.5}.hero-lede{font-size:19px;line-height:1.7}.button,.text-link{font-size:14px}.hero-foot{font-size:11px}.section-kicker{font-size:11px}
+.section-intro>p,.assistant-copy>p,.about>p{font-size:16px;line-height:1.8}.mini{font-size:10px}.featured-model>p:not(.mini){font-size:16px;line-height:1.75}.featured-model a{font-size:13px}
+.model-index,.model-list>article>span{font-size:11px}.model-list h3{font-size:25px}.model-list p{font-size:15.5px;line-height:1.7}
+.species-filter button{font-size:12px}.fruit-image>span{font-size:10px}.species-meta p{font-size:18px}.species-meta h3{font-size:15px;line-height:1.35}.species-meta span{font-size:10px;line-height:1.5}
+.prompt-list button{font-size:13.5px;line-height:1.5}.chat-top{font-size:13px}.chat-top span,#chatForm label{font-size:10px}.message,.chat-message{font-size:14px;line-height:1.7}#chatForm input,.chat-form input{font-size:14px}.chat-head span{font-size:12px}.chat-suggestions button{font-size:12px}
+.species-title small{font-size:11px}.species-title p{font-size:16px;line-height:1.8}.section-title p{font-size:16px;line-height:1.8}.data-card>p{font-size:14px;line-height:1.75}.data-record span{font-size:12px;line-height:1.5}.data-record b{font-size:10px}.tag-list span{font-size:12px;line-height:1.4}
+.theme-card small{font-size:10px}.theme-card p{font-size:15px;line-height:1.8}.theme-card b{font-size:12px}.omics-heading p{font-size:16px;line-height:1.8}.omics-type>header span{font-size:10px}.omics-record small{font-size:11px}.omics-record p{font-size:14px;line-height:1.7}.empty-omics p{font-size:15px;line-height:1.7}
+.about>a{font-size:13px}.footer-brand small{font-size:9px}footer>p,footer>span{font-size:10px;line-height:1.5}
+@media(max-width:600px){body{font-size:15px}.hero-lede{font-size:17px}.section-intro>p,.assistant-copy>p,.about>p,.species-title p,.section-title p,.omics-heading p{font-size:15px}.model-list p,.theme-card p{font-size:15px}.omics-record p{font-size:14px}}
