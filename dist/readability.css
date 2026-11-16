@@ -1,4 +1,5 @@
 /* Unified readability layer for TFruitLLM 1.0 */
+*,*::before,*::after{font-family:"Times New Roman",Times,serif!important}
 body{font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .brand strong{font-size:20px}.brand small,.simple-brand small{font-size:9.5px;line-height:1.35}.site-header nav a{font-size:14px;font-weight:500}.nav-cta,.back-link{font-size:13px;font-weight:600}
 .eyebrow{font-size:11px;line-height:1.5}.hero-lede{font-size:19px;line-height:1.7}.button,.text-link{font-size:14px}.hero-foot{font-size:11px}.section-kicker{font-size:11px}
