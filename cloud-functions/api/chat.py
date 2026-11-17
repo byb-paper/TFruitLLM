@@ -21,6 +21,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", content_type)
         self.send_header("Cache-Control", "no-store")
         self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("X-TFruitLLM-Proxy", "cloud-function-python")
         self.end_headers()
         self.wfile.write(body)
 
@@ -32,6 +33,7 @@ class handler(BaseHTTPRequestHandler):
             "Access-Control-Allow-Headers",
             "Content-Type, Authorization",
         )
+        self.send_header("X-TFruitLLM-Proxy", "cloud-function-python")
         self.end_headers()
 
     def do_POST(self):
