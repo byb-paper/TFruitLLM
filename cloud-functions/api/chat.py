@@ -70,6 +70,13 @@ class handler(BaseHTTPRequestHandler):
                             "role": "system",
                             "content": (
                                 "Answer in the same language as the user's question. "
+                                "Return only the answer the user needs. Begin directly "
+                                "with the substantive answer. Do not restate or quote the "
+                                "question, describe the user's intent, explain the response "
+                                "rules, or add meta-commentary such as 'the user asks', "
+                                "'according to the requirements', or 'here is the answer'. "
+                                "Do not add an introduction or conclusion unless it contributes "
+                                "new information needed to answer the question. "
                                 "Adapt the response structure to the task instead of using "
                                 "one fixed template. Give simple factual questions a direct, "
                                 "concise paragraph. For multi-part explanations, methods, or "
