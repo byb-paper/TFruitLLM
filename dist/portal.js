@@ -14,21 +14,38 @@ document.querySelector('.species-filter').addEventListener('click',event=>{
   document.querySelectorAll('.species-filter button').forEach(item=>item.classList.toggle('active',item===button));renderSpecies(button.dataset.filter);
 });
 
-function findSpecies(question){const q=question.toLowerCase();return species.find(item=>q.includes(item.key)||q.includes(item.commonName.toLowerCase())||q.includes(item.scientificName.toLowerCase()))}
-function answer(question){
-  const q=question.toLowerCase();
-  if(q.includes('thirteen')||q.includes('13')||q.includes('which species')||q.includes('integrated'))return `The atlas integrates ${species.map(item=>item.commonName).join(', ')}.`;
-  const item=findSpecies(question);if(!item)return 'Please name a species such as litchi, longan, mango, durian or pineapple so I can guide you to its evidence profile.';
-  const tx=transcriptomes.find(row=>row.scientificName===item.scientificName||row.commonName?.toLowerCase()===item.commonName.toLowerCase());
-  const records=advanced[item.key]||[];const types=[...new Set(records.map(row=>row.omicsType).filter(Boolean))];
-  if(/stress|disease|abiotic|biotic/.test(q))return `${item.commonName} has a Stress Response route in its species profile. Open the profile to view available abiotic, biotic or disease-related evidence by omics modality.`;
-  if(/development|growth|fruit|tissue/.test(q))return `${item.commonName} has a Growth & Development route linking developmental and tissue evidence to the available sequencing modalities.`;
-  if(/transcript|rna/.test(q))return tx||types.some(type=>/rna|transcript/i.test(type))?`${item.commonName} includes transcriptome evidence. Open its profile, choose a biological theme, and continue to the omics view for curated research accessions.`:`No curated transcriptome list is currently presented for ${item.commonName}.`;
-  return `${item.commonName} has an integrated genome profile${types.length?` connected with ${types.join(', ')}`:''}. Open the species card to explore evidence by biological theme.`;
-}
-
 const messages=document.querySelector('#messages'),form=document.querySelector('#chatForm'),input=document.querySelector('#question');
-function ask(text){if(!text.trim())return;messages.insertAdjacentHTML('beforeend',`<div class="message user">${safe(text)}</div><div class="message model">${safe(answer(text))}</div>`);messages.scrollTop=messages.scrollHeight;input.value=''}
+const submitButton=form.querySelector('button');
+const conversation=[];
+function addMessage(role,text,state=''){
+  const element=document.createElement('div');
+  element.className=`message ${role}${state?` ${state}`:''}`;
+  element.textContent=text;
+  messages.appendChild(element);
+  messages.scrollTop=messages.scrollHeight;
+  return element;
+}
+async function ask(text){
+  const question=text.trim();if(!question||submitButton.disabled)return;
+  addMessage('user',question);conversation.push({role:'user',content:question});
+  const pending=addMessage('model','TFruitLLM is examining the evidence…','pending');
+  input.value='';input.disabled=true;submitButton.disabled=true;
+  try{
+    const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation,max_tokens:1024,temperature:.3})});
+    const result=await response.json();
+    if(!response.ok)throw new Error(result.detail||result.error||`Request failed (${response.status})`);
+    const answer=result.choices?.[0]?.message?.content?.trim();
+    if(!answer)throw new Error('The model returned an empty response.');
+    pending.classList.remove('pending');pending.textContent=answer;
+    conversation.push({role:'assistant',content:answer});
+  }catch(error){
+    pending.classList.remove('pending');pending.classList.add('error');
+    pending.textContent=`The research service is temporarily unavailable. ${error.message}`;
+    conversation.pop();
+  }finally{
+    input.disabled=false;submitButton.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight;
+  }
+}
 form.addEventListener('submit',event=>{event.preventDefault();ask(input.value)});
 document.querySelector('.prompt-list').addEventListener('click',event=>{if(event.target.matches('button'))ask(event.target.textContent)});
 
