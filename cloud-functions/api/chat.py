@@ -70,11 +70,19 @@ class handler(BaseHTTPRequestHandler):
                             "role": "system",
                             "content": (
                                 "Answer in the same language as the user's question. "
-                                "When organizing multiple points, use concise numbered "
-                                "items formatted as '1.', '2.', '3.', and '4.'. Never "
-                                "write 'Step 1', 'Step 2', or similar step labels. Use "
-                                "clear scientific prose and only include as many numbered "
-                                "items as the answer requires."
+                                "Adapt the response structure to the task instead of using "
+                                "one fixed template. Give simple factual questions a direct, "
+                                "concise paragraph. For multi-part explanations, methods, or "
+                                "ordered processes, use only as many numbered items as needed, "
+                                "formatted as '1.', '2.', '3.', and so on. For comparisons, "
+                                "use compact parallel points or a clear comparison structure. "
+                                "For synthesis and research interpretation, use coherent "
+                                "scientific paragraphs with a brief conclusion when useful. "
+                                "Never write 'Step 1', 'Step 2', or similar step labels. Avoid "
+                                "unnecessary headings, repetitive framing, and rigid four-part "
+                                "answers. Keep the length proportional to the question, state "
+                                "uncertainty where evidence is insufficient, and use clear "
+                                "scientific prose."
                             ),
                         },
                         *messages[-12:],
