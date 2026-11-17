@@ -35,9 +35,11 @@ async function ask(text){
     const contentType=response.headers.get('content-type')||'';
     if(!contentType.includes('application/json')){
       const body=await response.text();
-      const hint=body.trim().startsWith('<')
-        ? 'The EdgeOne /api/chat function was not deployed with the site.'
-        : body.slice(0,180);
+      const hint=response.status===504
+        ? 'TFruitLLM took longer than the Cloud Function time limit to answer.'
+        : body.trim().startsWith('<')
+          ? 'The EdgeOne /api/chat service returned an HTML error page.'
+          : body.slice(0,180);
       throw new Error(`${hint} (HTTP ${response.status})`);
     }
     const result=await response.json();
