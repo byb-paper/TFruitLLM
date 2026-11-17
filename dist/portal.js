@@ -42,7 +42,10 @@ async function ask(text){
     }
     const result=await response.json();
     if(!response.ok)throw new Error(result.detail||result.error||`Request failed (${response.status})`);
-    const answer=result.choices?.[0]?.message?.content?.trim();
+    const rawAnswer=result.choices?.[0]?.message?.content?.trim();
+    const answer=rawAnswer?.includes('</think>')
+      ? rawAnswer.split('</think>').pop().trim()
+      : rawAnswer;
     if(!answer)throw new Error('The model returned an empty response.');
     pending.classList.remove('pending');pending.textContent=answer;
     conversation.push({role:'assistant',content:answer});

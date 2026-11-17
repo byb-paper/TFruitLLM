@@ -62,6 +62,43 @@ class handler(BaseHTTPRequestHandler):
                 )
                 return
 
+            last_user_text = next(
+                (
+                    str(message.get("content", "")).strip().lower()
+                    for message in reversed(messages)
+                    if message.get("role") == "user"
+                ),
+                "",
+            )
+            greeting_replies = {
+                "你好": "你好！请问有什么热带果树研究问题需要帮助？",
+                "您好": "您好！请问有什么热带果树研究问题需要帮助？",
+                "你好吗": "我很好，谢谢！请问有什么热带果树研究问题需要帮助？",
+                "hello": "Hello! How can I help with your tropical fruit research?",
+                "hi": "Hello! How can I help with your tropical fruit research?",
+                "hey": "Hello! How can I help with your tropical fruit research?",
+            }
+            if last_user_text in greeting_replies:
+                self.send_body(
+                    200,
+                    encode_json(
+                        {
+                            "model": "TFruitLLM",
+                            "choices": [
+                                {
+                                    "index": 0,
+                                    "message": {
+                                        "role": "assistant",
+                                        "content": greeting_replies[last_user_text],
+                                    },
+                                    "finish_reason": "stop",
+                                }
+                            ],
+                        }
+                    ),
+                )
+                return
+
             payload = encode_json(
                 {
                     "model": "TFruitLLM",
@@ -97,7 +134,7 @@ class handler(BaseHTTPRequestHandler):
                     "temperature": request_data.get("temperature", 0.3),
                     "max_tokens": min(
                         max(int(request_data.get("max_tokens", 1024)), 64),
-                        2048,
+                        512,
                     ),
                     "stream": False,
                 }
