@@ -65,7 +65,20 @@ class handler(BaseHTTPRequestHandler):
             payload = encode_json(
                 {
                     "model": "TFruitLLM",
-                    "messages": messages[-12:],
+                    "messages": [
+                        {
+                            "role": "system",
+                            "content": (
+                                "Answer in the same language as the user's question. "
+                                "When organizing multiple points, use concise numbered "
+                                "items formatted as '1.', '2.', '3.', and '4.'. Never "
+                                "write 'Step 1', 'Step 2', or similar step labels. Use "
+                                "clear scientific prose and only include as many numbered "
+                                "items as the answer requires."
+                            ),
+                        },
+                        *messages[-12:],
+                    ],
                     "temperature": request_data.get("temperature", 0.3),
                     "max_tokens": min(
                         max(int(request_data.get("max_tokens", 1024)), 64),
