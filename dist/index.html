@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="TFruitLLM 1.0 is a knowledge- and omics-driven large language model for tropical fruit biology and breeding.">
   <title>TFruitLLM 1.0 | Tropical Fruit Biology and Breeding</title>
-  <link rel="stylesheet" href="portal.css?v=5">
+  <link rel="stylesheet" href="portal.css?v=6">
 </head>
 <body>
   <header class="site-header">
@@ -13,49 +13,33 @@
       <img src="assets/tropifruit-logo-fruit-canopy.png" alt="TFruitLLM fruit canopy logo">
       <span><strong>TFruitLLM 1.0</strong><small>TROPICAL FRUIT RESEARCH INTELLIGENCE</small></span>
     </a>
-    <nav aria-label="Primary navigation"><a href="#assistant">Ask</a><a href="#species">Species</a></nav>
-    <a class="nav-cta" href="#species">Explore 13 species</a>
+    <nav aria-label="Primary navigation"><a href="#assistant">Ask</a><a href="#species">13 Species</a></nav>
   </header>
 
   <main>
     <section class="assistant-home" id="assistant">
-      <div class="welcome-mark"><img src="assets/tropifruit-logo-v6.png" alt=""></div>
-      <p class="eyebrow">KNOWLEDGE · GENOMICS · MULTI-OMICS</p>
       <h1>TFruitLLM 1.0</h1>
       <p class="model-title">A knowledge- and omics-driven large language model for tropical fruit biology and breeding</p>
-      <p class="welcome-copy">Ask a focused research question across thirteen tropical fruit species.</p>
-
-      <div class="prompt-list" aria-label="Suggested questions">
-        <button>Which genes are associated with mango peel colour?</button>
-        <button>Summarize litchi fruit-development evidence.</button>
-        <button>Explore longan stress-response transcriptomes.</button>
-      </div>
 
       <div class="chat-panel">
-        <div class="chat-top"><div><i></i><strong>TFruitLLM</strong></div><span>LIVE RESEARCH MODE</span></div>
-        <div class="messages" id="messages"><div class="message model">How can I help with your tropical fruit research?</div></div>
+        <div class="messages" id="messages"><div class="message model">Ask me about tropical fruit biology, genes or omics data.</div></div>
         <form id="chatForm">
           <label class="sr-only" for="question">Research question</label>
           <div class="composer"><input id="question" autocomplete="off" placeholder="Ask about a species, gene, trait or omics dataset…"><button aria-label="Send question">↑</button></div>
-          <p>Responses are generated from the connected TFruitLLM research service.</p>
         </form>
       </div>
     </section>
 
     <section class="species-section" id="species">
-      <div class="section-head">
-        <div><p class="eyebrow dark">SPECIES PORTAL</p><h2>Explore thirteen tropical fruits</h2></div>
-        <p>Select a species to open its growth, development, stress-response and omics profile.</p>
-      </div>
-      <div class="species-filter" role="group" aria-label="Species filter"><button class="active" data-filter="all">All species</button><button data-filter="sapindaceae">Sapindaceae</button><button data-filter="other">Other fruits</button></div>
+      <div class="section-head"><h2>13 Tropical Fruit Species</h2><p>Select a species to view its development, stress-response and omics data.</p></div>
       <div class="species-grid" id="speciesGrid"><p class="loading">Loading species portal…</p></div>
     </section>
   </main>
 
   <footer>
     <a class="brand" href="#assistant"><img src="assets/tropifruit-logo-fruit-canopy.png" alt=""><span><strong>TFruitLLM 1.0</strong><small>TROPICAL FRUIT RESEARCH INTELLIGENCE</small></span></a>
-    <p>Genome · Transcriptome · Multi-omics · AI</p>
+    <p>Knowledge · Omics · Breeding</p>
   </footer>
-  <script src="portal.js?v=5"></script>
+  <script src="portal.js?v=6"></script>
 </body>
 </html>
