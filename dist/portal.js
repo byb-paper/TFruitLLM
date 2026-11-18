@@ -17,6 +17,13 @@ document.querySelector('.species-filter')?.addEventListener('click',event=>{
 const messages=document.querySelector('#messages'),form=document.querySelector('#chatForm'),input=document.querySelector('#question');
 const submitButton=form.querySelector('button');
 const conversation=[];
+function normalizeAnswer(text=''){
+  return String(text)
+    .replace(/(?:^|\s+)Step\s*(\d+)\s*(?:[—–\-:：]\s*)?/gi,(_,number)=>`\n\n${number}. `)
+    .replace(/(?:^|\s+)步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?/g,(_,number)=>`\n\n${number}. `)
+    .replace(/\n{3,}/g,'\n\n')
+    .trim();
+}
 function addMessage(role,text,state=''){
   const element=document.createElement('div');
   element.className=`message ${role}${state?` ${state}`:''}`;
@@ -45,9 +52,9 @@ async function ask(text){
     const result=await response.json();
     if(!response.ok)throw new Error(result.detail||result.error||`Request failed (${response.status})`);
     const rawAnswer=result.choices?.[0]?.message?.content?.trim();
-    const answer=rawAnswer?.includes('</think>')
+    const answer=normalizeAnswer(rawAnswer?.includes('</think>')
       ? rawAnswer.split('</think>').pop().trim()
-      : rawAnswer;
+      : rawAnswer);
     if(!answer)throw new Error('The model returned an empty response.');
     pending.classList.remove('pending');pending.textContent=answer;
     conversation.push({role:'assistant',content:answer});
