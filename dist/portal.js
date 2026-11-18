@@ -28,7 +28,7 @@ function addMessage(role,text,state=''){
 async function ask(text){
   const question=text.trim();if(!question||submitButton.disabled)return;
   addMessage('user',question);conversation.push({role:'user',content:question});
-  const pending=addMessage('model','TFruitLLM is examining the evidence…','pending');
+  const pending=addMessage('model','TropicalfruitLLM 1.0 is examining the evidence…','pending');
   input.value='';input.disabled=true;submitButton.disabled=true;
   try{
     const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation,max_tokens:1024,temperature:.3})});
@@ -36,7 +36,7 @@ async function ask(text){
     if(!contentType.includes('application/json')){
       const body=await response.text();
       const hint=response.status===504
-        ? 'TFruitLLM took longer than the Cloud Function time limit to answer.'
+        ? 'TropicalfruitLLM 1.0 took longer than the Cloud Function time limit to answer.'
         : body.trim().startsWith('<')
           ? 'The EdgeOne /api/chat service returned an HTML error page.'
           : body.slice(0,180);
