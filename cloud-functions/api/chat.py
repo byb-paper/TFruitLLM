@@ -133,6 +133,11 @@ class handler(BaseHTTPRequestHandler):
                             "role": "system",
                             "content": (
                                 "Answer in the same language as the user's question. "
+                                "Write like a friendly, rigorous tropical-fruit research "
+                                "colleague. Keep the response natural and approachable rather "
+                                "than sounding like a database export, examination rubric, or "
+                                "fixed template. Use smooth transitions and briefly connect "
+                                "listed findings to their biological meaning when evidence allows. "
                                 "Return only the answer the user needs. Begin directly "
                                 "with the substantive answer. Do not restate or quote the "
                                 "question, describe the user's intent, explain the response "
@@ -163,7 +168,7 @@ class handler(BaseHTTPRequestHandler):
                         },
                         *messages[-12:],
                     ],
-                    "temperature": request_data.get("temperature", 0.3),
+                    "temperature": request_data.get("temperature", 0.4),
                     "max_tokens": min(
                         max(int(request_data.get("max_tokens", 1024)), 64),
                         512,
