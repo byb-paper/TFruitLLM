@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import ssl
 import urllib.error
 import urllib.request
@@ -8,6 +9,31 @@ from http.server import BaseHTTPRequestHandler
 
 def encode_json(data):
     return json.dumps(data, ensure_ascii=False).encode("utf-8")
+
+
+def normalize_answer(body):
+    """Remove rigid step labels even when the upstream model ignores style rules."""
+    try:
+        data = json.loads(body.decode("utf-8"))
+        for choice in data.get("choices", []):
+            message = choice.get("message") or {}
+            content = message.get("content")
+            if not isinstance(content, str):
+                continue
+            content = re.sub(
+                r"(?i)(?:^|\s+)step\s*(\d+)\s*(?:[—–\-:：]\s*)?",
+                lambda match: "\n\n" + match.group(1) + ". ",
+                content,
+            )
+            content = re.sub(
+                r"(?:^|\s+)步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?",
+                lambda match: "\n\n" + match.group(1) + ". ",
+                content,
+            )
+            message["content"] = re.sub(r"\n{3,}", "\n\n", content).strip()
+        return encode_json(data)
+    except (UnicodeDecodeError, json.JSONDecodeError, AttributeError):
+        return body
 
 
 class handler(BaseHTTPRequestHandler):
@@ -122,7 +148,13 @@ class handler(BaseHTTPRequestHandler):
                                 "use compact parallel points or a clear comparison structure. "
                                 "For synthesis and research interpretation, use coherent "
                                 "scientific paragraphs with a brief conclusion when useful. "
-                                "Never write 'Step 1', 'Step 2', or similar step labels. Avoid "
+                                "The words 'Step 1', 'Step 2', 'Step', '步骤一', and similar "
+                                "process labels are forbidden in the answer. Do not describe "
+                                "problem identification, data extraction, completeness checks, "
+                                "answer construction, or your reasoning procedure. When the user "
+                                "asks which genes, metabolites, pathways, diseases, or studies are "
+                                "involved, list the requested items directly, one item per line, "
+                                "with a short evidence-based description when available. Avoid "
                                 "unnecessary headings, repetitive framing, and rigid four-part "
                                 "answers. Keep the length proportional to the question, state "
                                 "uncertainty where evidence is insufficient, and use clear "
@@ -163,7 +195,7 @@ class handler(BaseHTTPRequestHandler):
                 context=insecure_ssl_context,
                 timeout=180,
             ) as upstream:
-                response_body = upstream.read()
+                response_body = normalize_answer(upstream.read())
                 content_type = upstream.headers.get(
                     "Content-Type",
                     "application/json; charset=utf-8",
