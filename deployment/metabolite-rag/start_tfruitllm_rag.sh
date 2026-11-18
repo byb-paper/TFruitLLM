@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 MODEL_DIR="${MODEL_DIR:-/root/models}"
-RAG_DIR="${RAG_DIR:-/root/rag}"
+RAG_DIR="${RAG_DIR:-$MODEL_DIR/rag}"
 DB="${RAG_DB:-$RAG_DIR/metabolite_rag.sqlite}"
 TP_SIZE="${TP_SIZE:-2}"
 export HIP_VISIBLE_DEVICES="${HIP_VISIBLE_DEVICES:-0,1}"

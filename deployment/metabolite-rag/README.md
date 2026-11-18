@@ -45,19 +45,19 @@ Prefer building a new training file rather than overwriting the completed run. D
 
 ## 4. Model-management mount
 
-Create a runtime directory containing:
+Create one model runtime directory containing both the original model and the `rag/` subdirectory:
 
 ```text
 /root/models/                 base model + lora/
-/root/rag/rag_gateway.py
-/root/rag/metabolite_rag.sqlite
-/root/rag/start_tfruitllm_rag.sh
+/root/models/rag/rag_gateway.py
+/root/models/rag/metabolite_rag.sqlite
+/root/models/rag/start_tfruitllm_rag.sh
 ```
 
 Use this startup command:
 
 ```bash
-bash /root/rag/start_tfruitllm_rag.sh
+bash /root/models/rag/start_tfruitllm_rag.sh
 ```
 
 Keep service port `6666`. The gateway starts vLLM internally on `6667`, retrieves evidence, injects it into the prompt, and requires `[E1]` citations plus an Evidence list.
