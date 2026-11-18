@@ -1,0 +1,1058 @@
+{
+  "workbooks": [
+    "榴莲/榴莲_30年PubMed文献.xlsx",
+    "火龙果/火龙果_30年PubMed文献.xlsx",
+    "牛油果/牛油果_30年PubMed文献.xlsx",
+    "番石榴/番石榴_30年PubMed文献.xlsx",
+    "番荔枝/番荔枝_30年PubMed文献(1).xlsx",
+    "百香果/百香果_30年PubMed文献.xlsx",
+    "红毛丹/红毛丹_30年PubMed文献.xlsx",
+    "腰果/腰果_30年PubMed文献.xlsx",
+    "芒果/芒果_30年PubMed文献.xlsx",
+    "荔枝/荔枝_v2_30年PubMed文献.xlsx",
+    "菠萝/菠萝_30年PubMed文献.xlsx",
+    "黄皮/黄皮_30年PubMed文献.xlsx",
+    "龙眼/龙眼_30年PubMed文献.xlsx"
+  ],
+  "source_records": 15926,
+  "literature_records": 15926,
+  "rag_passages": 15926,
+  "generated_grouped_qa": 277,
+  "topic_counts_multi_label": {
+    "processing_food_safety_byproducts": 2394,
+    "nutrition_pharmacology_toxicology": 2073,
+    "transcriptomics_expression": 501,
+    "metabolites_phytochemistry": 1885,
+    "development_flowering_ripening": 1774,
+    "microbiome_endophytes": 205,
+    "integrative_omics_methods": 40,
+    "biomaterials_environment_energy": 590,
+    "proteomics_enzymes": 663,
+    "other_unclassified": 4146,
+    "postharvest_storage_quality": 939,
+    "biotic_stress_disease_pests": 3192,
+    "genetics_genomics_breeding": 1080,
+    "ecology_taxonomy_evolution": 516,
+    "sensory_flavor_consumer": 366,
+    "analytical_detection_methods": 927,
+    "phenotyping_imaging_computation": 234,
+    "cultivation_soil_irrigation": 424,
+    "physiology_hormones_nutrition": 556,
+    "abiotic_stress": 325,
+    "allergy_clinical_safety": 605,
+    "propagation_tissue_culture": 137,
+    "epigenetics_regulation": 58
+  },
+  "species_counts": {
+    "durian": 300,
+    "dragon_fruit": 655,
+    "avocado": 2468,
+    "guava": 1907,
+    "sugar_apple": 308,
+    "passion_fruit": 697,
+    "rambutan": 231,
+    "cashew": 1706,
+    "mango": 3153,
+    "litchi": 1279,
+    "pineapple": 2537,
+    "wampee": 124,
+    "longan": 561
+  },
+  "species_topic_counts": {
+    "avocado|abiotic_stress": 43,
+    "avocado|allergy_clinical_safety": 93,
+    "avocado|analytical_detection_methods": 138,
+    "avocado|biomaterials_environment_energy": 50,
+    "avocado|biotic_stress_disease_pests": 591,
+    "avocado|cultivation_soil_irrigation": 78,
+    "avocado|development_flowering_ripening": 331,
+    "avocado|ecology_taxonomy_evolution": 77,
+    "avocado|epigenetics_regulation": 8,
+    "avocado|genetics_genomics_breeding": 147,
+    "avocado|integrative_omics_methods": 5,
+    "avocado|metabolites_phytochemistry": 218,
+    "avocado|microbiome_endophytes": 29,
+    "avocado|nutrition_pharmacology_toxicology": 314,
+    "avocado|other_unclassified": 724,
+    "avocado|phenotyping_imaging_computation": 33,
+    "avocado|physiology_hormones_nutrition": 111,
+    "avocado|postharvest_storage_quality": 127,
+    "avocado|processing_food_safety_byproducts": 193,
+    "avocado|propagation_tissue_culture": 31,
+    "avocado|proteomics_enzymes": 112,
+    "avocado|sensory_flavor_consumer": 30,
+    "avocado|transcriptomics_expression": 55,
+    "cashew|abiotic_stress": 37,
+    "cashew|allergy_clinical_safety": 280,
+    "cashew|analytical_detection_methods": 100,
+    "cashew|biomaterials_environment_energy": 53,
+    "cashew|biotic_stress_disease_pests": 253,
+    "cashew|cultivation_soil_irrigation": 27,
+    "cashew|development_flowering_ripening": 113,
+    "cashew|ecology_taxonomy_evolution": 36,
+    "cashew|epigenetics_regulation": 5,
+    "cashew|genetics_genomics_breeding": 53,
+    "cashew|integrative_omics_methods": 8,
+    "cashew|metabolites_phytochemistry": 117,
+    "cashew|microbiome_endophytes": 18,
+    "cashew|nutrition_pharmacology_toxicology": 229,
+    "cashew|other_unclassified": 559,
+    "cashew|phenotyping_imaging_computation": 24,
+    "cashew|physiology_hormones_nutrition": 36,
+    "cashew|postharvest_storage_quality": 43,
+    "cashew|processing_food_safety_byproducts": 219,
+    "cashew|propagation_tissue_culture": 9,
+    "cashew|proteomics_enzymes": 66,
+    "cashew|sensory_flavor_consumer": 23,
+    "cashew|transcriptomics_expression": 23,
+    "dragon_fruit|abiotic_stress": 26,
+    "dragon_fruit|allergy_clinical_safety": 11,
+    "dragon_fruit|analytical_detection_methods": 36,
+    "dragon_fruit|biomaterials_environment_energy": 35,
+    "dragon_fruit|biotic_stress_disease_pests": 96,
+    "dragon_fruit|cultivation_soil_irrigation": 22,
+    "dragon_fruit|development_flowering_ripening": 58,
+    "dragon_fruit|ecology_taxonomy_evolution": 21,
+    "dragon_fruit|epigenetics_regulation": 2,
+    "dragon_fruit|genetics_genomics_breeding": 42,
+    "dragon_fruit|integrative_omics_methods": 2,
+    "dragon_fruit|metabolites_phytochemistry": 90,
+    "dragon_fruit|microbiome_endophytes": 13,
+    "dragon_fruit|nutrition_pharmacology_toxicology": 102,
+    "dragon_fruit|other_unclassified": 137,
+    "dragon_fruit|phenotyping_imaging_computation": 13,
+    "dragon_fruit|physiology_hormones_nutrition": 19,
+    "dragon_fruit|postharvest_storage_quality": 55,
+    "dragon_fruit|processing_food_safety_byproducts": 136,
+    "dragon_fruit|propagation_tissue_culture": 4,
+    "dragon_fruit|proteomics_enzymes": 20,
+    "dragon_fruit|sensory_flavor_consumer": 12,
+    "dragon_fruit|transcriptomics_expression": 51,
+    "durian|abiotic_stress": 6,
+    "durian|allergy_clinical_safety": 6,
+    "durian|analytical_detection_methods": 18,
+    "durian|biomaterials_environment_energy": 48,
+    "durian|biotic_stress_disease_pests": 38,
+    "durian|cultivation_soil_irrigation": 9,
+    "durian|development_flowering_ripening": 46,
+    "durian|ecology_taxonomy_evolution": 16,
+    "durian|genetics_genomics_breeding": 39,
+    "durian|integrative_omics_methods": 2,
+    "durian|metabolites_phytochemistry": 28,
+    "durian|microbiome_endophytes": 2,
+    "durian|nutrition_pharmacology_toxicology": 26,
+    "durian|other_unclassified": 43,
+    "durian|phenotyping_imaging_computation": 5,
+    "durian|physiology_hormones_nutrition": 18,
+    "durian|postharvest_storage_quality": 9,
+    "durian|processing_food_safety_byproducts": 75,
+    "durian|proteomics_enzymes": 4,
+    "durian|sensory_flavor_consumer": 13,
+    "durian|transcriptomics_expression": 16,
+    "guava|abiotic_stress": 35,
+    "guava|allergy_clinical_safety": 20,
+    "guava|analytical_detection_methods": 96,
+    "guava|biomaterials_environment_energy": 47,
+    "guava|biotic_stress_disease_pests": 433,
+    "guava|cultivation_soil_irrigation": 59,
+    "guava|development_flowering_ripening": 123,
+    "guava|ecology_taxonomy_evolution": 79,
+    "guava|epigenetics_regulation": 1,
+    "guava|genetics_genomics_breeding": 94,
+    "guava|integrative_omics_methods": 2,
+    "guava|metabolites_phytochemistry": 244,
+    "guava|microbiome_endophytes": 24,
+    "guava|nutrition_pharmacology_toxicology": 308,
+    "guava|other_unclassified": 578,
+    "guava|phenotyping_imaging_computation": 25,
+    "guava|physiology_hormones_nutrition": 44,
+    "guava|postharvest_storage_quality": 92,
+    "guava|processing_food_safety_byproducts": 205,
+    "guava|propagation_tissue_culture": 6,
+    "guava|proteomics_enzymes": 69,
+    "guava|sensory_flavor_consumer": 31,
+    "guava|transcriptomics_expression": 36,
+    "litchi|abiotic_stress": 35,
+    "litchi|allergy_clinical_safety": 22,
+    "litchi|analytical_detection_methods": 70,
+    "litchi|biomaterials_environment_energy": 58,
+    "litchi|biotic_stress_disease_pests": 276,
+    "litchi|cultivation_soil_irrigation": 52,
+    "litchi|development_flowering_ripening": 224,
+    "litchi|ecology_taxonomy_evolution": 35,
+    "litchi|epigenetics_regulation": 17,
+    "litchi|genetics_genomics_breeding": 106,
+    "litchi|integrative_omics_methods": 3,
+    "litchi|metabolites_phytochemistry": 217,
+    "litchi|microbiome_endophytes": 32,
+    "litchi|nutrition_pharmacology_toxicology": 149,
+    "litchi|other_unclassified": 256,
+    "litchi|phenotyping_imaging_computation": 18,
+    "litchi|physiology_hormones_nutrition": 66,
+    "litchi|postharvest_storage_quality": 109,
+    "litchi|processing_food_safety_byproducts": 150,
+    "litchi|propagation_tissue_culture": 9,
+    "litchi|proteomics_enzymes": 69,
+    "litchi|sensory_flavor_consumer": 28,
+    "litchi|transcriptomics_expression": 83,
+    "longan|abiotic_stress": 9,
+    "longan|allergy_clinical_safety": 5,
+    "longan|analytical_detection_methods": 31,
+    "longan|biomaterials_environment_energy": 15,
+    "longan|biotic_stress_disease_pests": 107,
+    "longan|cultivation_soil_irrigation": 13,
+    "longan|development_flowering_ripening": 158,
+    "longan|ecology_taxonomy_evolution": 18,
+    "longan|epigenetics_regulation": 7,
+    "longan|genetics_genomics_breeding": 65,
+    "longan|integrative_omics_methods": 1,
+    "longan|metabolites_phytochemistry": 87,
+    "longan|microbiome_endophytes": 10,
+    "longan|nutrition_pharmacology_toxicology": 64,
+    "longan|other_unclassified": 117,
+    "longan|phenotyping_imaging_computation": 4,
+    "longan|physiology_hormones_nutrition": 29,
+    "longan|postharvest_storage_quality": 45,
+    "longan|processing_food_safety_byproducts": 61,
+    "longan|propagation_tissue_culture": 38,
+    "longan|proteomics_enzymes": 26,
+    "longan|sensory_flavor_consumer": 9,
+    "longan|transcriptomics_expression": 33,
+    "mango|abiotic_stress": 50,
+    "mango|allergy_clinical_safety": 89,
+    "mango|analytical_detection_methods": 186,
+    "mango|biomaterials_environment_energy": 60,
+    "mango|biotic_stress_disease_pests": 636,
+    "mango|cultivation_soil_irrigation": 75,
+    "mango|development_flowering_ripening": 311,
+    "mango|ecology_taxonomy_evolution": 98,
+    "mango|epigenetics_regulation": 9,
+    "mango|genetics_genomics_breeding": 226,
+    "mango|integrative_omics_methods": 5,
+    "mango|metabolites_phytochemistry": 468,
+    "mango|microbiome_endophytes": 29,
+    "mango|nutrition_pharmacology_toxicology": 368,
+    "mango|other_unclassified": 890,
+    "mango|phenotyping_imaging_computation": 54,
+    "mango|physiology_hormones_nutrition": 104,
+    "mango|postharvest_storage_quality": 245,
+    "mango|processing_food_safety_byproducts": 453,
+    "mango|propagation_tissue_culture": 13,
+    "mango|proteomics_enzymes": 120,
+    "mango|sensory_flavor_consumer": 88,
+    "mango|transcriptomics_expression": 77,
+    "passion_fruit|abiotic_stress": 31,
+    "passion_fruit|allergy_clinical_safety": 7,
+    "passion_fruit|analytical_detection_methods": 44,
+    "passion_fruit|biomaterials_environment_energy": 23,
+    "passion_fruit|biotic_stress_disease_pests": 152,
+    "passion_fruit|cultivation_soil_irrigation": 21,
+    "passion_fruit|development_flowering_ripening": 127,
+    "passion_fruit|ecology_taxonomy_evolution": 36,
+    "passion_fruit|epigenetics_regulation": 1,
+    "passion_fruit|genetics_genomics_breeding": 90,
+    "passion_fruit|integrative_omics_methods": 4,
+    "passion_fruit|metabolites_phytochemistry": 101,
+    "passion_fruit|microbiome_endophytes": 11,
+    "passion_fruit|nutrition_pharmacology_toxicology": 98,
+    "passion_fruit|other_unclassified": 102,
+    "passion_fruit|phenotyping_imaging_computation": 8,
+    "passion_fruit|physiology_hormones_nutrition": 22,
+    "passion_fruit|postharvest_storage_quality": 46,
+    "passion_fruit|processing_food_safety_byproducts": 133,
+    "passion_fruit|propagation_tissue_culture": 8,
+    "passion_fruit|proteomics_enzymes": 28,
+    "passion_fruit|sensory_flavor_consumer": 23,
+    "passion_fruit|transcriptomics_expression": 35,
+    "pineapple|abiotic_stress": 48,
+    "pineapple|allergy_clinical_safety": 59,
+    "pineapple|analytical_detection_methods": 172,
+    "pineapple|biomaterials_environment_energy": 179,
+    "pineapple|biotic_stress_disease_pests": 498,
+    "pineapple|cultivation_soil_irrigation": 61,
+    "pineapple|development_flowering_ripening": 171,
+    "pineapple|ecology_taxonomy_evolution": 88,
+    "pineapple|epigenetics_regulation": 8,
+    "pineapple|genetics_genomics_breeding": 184,
+    "pineapple|integrative_omics_methods": 6,
+    "pineapple|metabolites_phytochemistry": 198,
+    "pineapple|microbiome_endophytes": 29,
+    "pineapple|nutrition_pharmacology_toxicology": 261,
+    "pineapple|other_unclassified": 563,
+    "pineapple|phenotyping_imaging_computation": 46,
+    "pineapple|physiology_hormones_nutrition": 92,
+    "pineapple|postharvest_storage_quality": 146,
+    "pineapple|processing_food_safety_byproducts": 712,
+    "pineapple|propagation_tissue_culture": 17,
+    "pineapple|proteomics_enzymes": 139,
+    "pineapple|sensory_flavor_consumer": 100,
+    "pineapple|transcriptomics_expression": 75,
+    "rambutan|abiotic_stress": 2,
+    "rambutan|allergy_clinical_safety": 7,
+    "rambutan|analytical_detection_methods": 11,
+    "rambutan|biomaterials_environment_energy": 16,
+    "rambutan|biotic_stress_disease_pests": 47,
+    "rambutan|cultivation_soil_irrigation": 2,
+    "rambutan|development_flowering_ripening": 41,
+    "rambutan|ecology_taxonomy_evolution": 4,
+    "rambutan|genetics_genomics_breeding": 11,
+    "rambutan|metabolites_phytochemistry": 34,
+    "rambutan|microbiome_endophytes": 2,
+    "rambutan|nutrition_pharmacology_toxicology": 38,
+    "rambutan|other_unclassified": 47,
+    "rambutan|phenotyping_imaging_computation": 2,
+    "rambutan|physiology_hormones_nutrition": 11,
+    "rambutan|postharvest_storage_quality": 11,
+    "rambutan|processing_food_safety_byproducts": 37,
+    "rambutan|propagation_tissue_culture": 1,
+    "rambutan|proteomics_enzymes": 5,
+    "rambutan|sensory_flavor_consumer": 3,
+    "rambutan|transcriptomics_expression": 8,
+    "sugar_apple|abiotic_stress": 3,
+    "sugar_apple|allergy_clinical_safety": 2,
+    "sugar_apple|analytical_detection_methods": 18,
+    "sugar_apple|biomaterials_environment_energy": 4,
+    "sugar_apple|biotic_stress_disease_pests": 42,
+    "sugar_apple|cultivation_soil_irrigation": 3,
+    "sugar_apple|development_flowering_ripening": 60,
+    "sugar_apple|ecology_taxonomy_evolution": 6,
+    "sugar_apple|genetics_genomics_breeding": 13,
+    "sugar_apple|integrative_omics_methods": 1,
+    "sugar_apple|metabolites_phytochemistry": 39,
+    "sugar_apple|microbiome_endophytes": 5,
+    "sugar_apple|nutrition_pharmacology_toxicology": 94,
+    "sugar_apple|other_unclassified": 96,
+    "sugar_apple|phenotyping_imaging_computation": 1,
+    "sugar_apple|physiology_hormones_nutrition": 4,
+    "sugar_apple|postharvest_storage_quality": 8,
+    "sugar_apple|processing_food_safety_byproducts": 10,
+    "sugar_apple|propagation_tissue_culture": 1,
+    "sugar_apple|proteomics_enzymes": 2,
+    "sugar_apple|sensory_flavor_consumer": 4,
+    "sugar_apple|transcriptomics_expression": 4,
+    "wampee|allergy_clinical_safety": 4,
+    "wampee|analytical_detection_methods": 7,
+    "wampee|biomaterials_environment_energy": 2,
+    "wampee|biotic_stress_disease_pests": 23,
+    "wampee|cultivation_soil_irrigation": 2,
+    "wampee|development_flowering_ripening": 11,
+    "wampee|ecology_taxonomy_evolution": 2,
+    "wampee|genetics_genomics_breeding": 10,
+    "wampee|integrative_omics_methods": 1,
+    "wampee|metabolites_phytochemistry": 44,
+    "wampee|microbiome_endophytes": 1,
+    "wampee|nutrition_pharmacology_toxicology": 22,
+    "wampee|other_unclassified": 34,
+    "wampee|phenotyping_imaging_computation": 1,
+    "wampee|postharvest_storage_quality": 3,
+    "wampee|processing_food_safety_byproducts": 10,
+    "wampee|proteomics_enzymes": 3,
+    "wampee|sensory_flavor_consumer": 2,
+    "wampee|transcriptomics_expression": 5
+  },
+  "unclassified_literature_count": 4146,
+  "unclassified_literature_rate": 0.260329,
+  "unclassified_examples": [
+    {
+      "species": "durian",
+      "title": "Multi-City Outbreak of Staphylococcus aureus Infections Linked to Durian Mille-Feuille Cakes - Shandong Province, China, May-June 2025.",
+      "pmid": "41953695",
+      "doi": "10.46234/ccdcw2026.029",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:9"
+    },
+    {
+      "species": "durian",
+      "title": "InterDuPa-UAV: A UAV-based dataset for the classification of intercropped durian and papaya trees.",
+      "pmid": "40687368",
+      "doi": "10.1016/j.dib.2025.111843",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:41"
+    },
+    {
+      "species": "durian",
+      "title": "Durian and Sapodilla Extracts Enhance Chemotherapy Sensitivity and Promote Apoptosis in Triple Negative Breast Cancer Model in Vitro: Systematic Review.",
+      "pmid": "40223857",
+      "doi": "10.5455/aim.2024.33.64-70",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:50"
+    },
+    {
+      "species": "durian",
+      "title": "Bioinspired Pyramidal Array Photothermal Structure for Highly Efficient Water Evaporation under Omnidirectional Illumination.",
+      "pmid": "39772405",
+      "doi": "10.1021/acsami.4c18201",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:60"
+    },
+    {
+      "species": "durian",
+      "title": "Durian: A Comprehensive Benchmark for Structure-Based 3D Molecular Generation.",
+      "pmid": "39681323",
+      "doi": "10.1021/acs.jcim.4c02232",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:65"
+    },
+    {
+      "species": "durian",
+      "title": "Kunitz-type trypsin inhibitor from durian (Durio zibethinus) employs a distinct loop for trypsin inhibition.",
+      "pmid": "39565068",
+      "doi": "10.1002/pro.5230",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:68"
+    },
+    {
+      "species": "durian",
+      "title": "Pichia kudriavzevii UNJCC Y-137 and Candida tropicalis UNJCC Y-140 isolated from Durio kutejensis as potential probiotic agents.",
+      "pmid": "39493392",
+      "doi": "10.1007/s10068-024-01609-w",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:71"
+    },
+    {
+      "species": "durian",
+      "title": "Carboligation towards production of hydroxypentanones.",
+      "pmid": "39122015",
+      "doi": "10.1016/j.jbiotec.2024.08.004",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:83"
+    },
+    {
+      "species": "durian",
+      "title": "Is that a durian? No, it's a weird ancient mollusc.",
+      "pmid": "39090277",
+      "doi": "10.1038/d41586-024-02522-2",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:85"
+    },
+    {
+      "species": "durian",
+      "title": "Unveiling phenylpropanoid regulation: the role of DzMYB activator and repressor in durian (Durio zibethinus) fruit.",
+      "pmid": "38913159",
+      "doi": "10.1007/s00299-024-03267-y",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:88"
+    },
+    {
+      "species": "durian",
+      "title": "Cross-Inoculation of Commercial Forestry, Amenity, and Horticulture Tree Species with Ceratocystis Isolates Collected from Different Host Species.",
+      "pmid": "38780477",
+      "doi": "10.1094/PDIS-02-23-0271-RE",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:93"
+    },
+    {
+      "species": "durian",
+      "title": "Characterization of alcohol acetyltransferases in the ripe flesh of 'Monthong' and 'Chanthaburi 1' durians.",
+      "pmid": "38056038",
+      "doi": "10.1016/j.plaphy.2023.108241",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:116"
+    },
+    {
+      "species": "durian",
+      "title": "Finite element analysis of energy absorption mechanism of durian peel and durian thorns under compressive load.",
+      "pmid": "37453158",
+      "doi": "10.1016/j.jmbbm.2023.106022",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:125"
+    },
+    {
+      "species": "durian",
+      "title": "Plasmonic Effects of Au@Ag Nanoparticles in Buffer and Active Layers of Polymer Solar Cells for Efficiency Enhancement.",
+      "pmid": "36013609",
+      "doi": "10.3390/ma15165472",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:159"
+    },
+    {
+      "species": "durian",
+      "title": "A Whiff of Sulfur: One Wind a Day Keeps the Doctor Away.",
+      "pmid": "35739933",
+      "doi": "10.3390/antiox11061036",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:163"
+    },
+    {
+      "species": "durian",
+      "title": "Soft particles facilitate flow of rigid particles in a 2D hopper.",
+      "pmid": "35582943",
+      "doi": "10.1039/d2sm00318j",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:167"
+    },
+    {
+      "species": "durian",
+      "title": "Humanizing plant-derived snakins and their encrypted antimicrobial peptides.",
+      "pmid": "35472564",
+      "doi": "10.1016/j.biochi.2022.04.011",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:169"
+    },
+    {
+      "species": "durian",
+      "title": "Flooding tolerance of four tropical peatland tree species in a nursery trial.",
+      "pmid": "35385481",
+      "doi": "10.1371/journal.pone.0262375",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:170"
+    },
+    {
+      "species": "durian",
+      "title": "Phytophthora heterospora sp. nov., a New Pseudoconidia-Producing Sister Species of P. palmivora.",
+      "pmid": "34682290",
+      "doi": "10.3390/jof7100870",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:185"
+    },
+    {
+      "species": "durian",
+      "title": "Spiky Durian-Shaped Au@Ag Nanoparticles in PEDOT:PSS for Improved Efficiency of Organic Solar Cells.",
+      "pmid": "34639989",
+      "doi": "10.3390/ma14195591",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:188"
+    },
+    {
+      "species": "durian",
+      "title": "Sulfur-Doped Carbons from Durian Peels, Their Surface Characteristics, and Electrochemical Behaviors.",
+      "pmid": "34604671",
+      "doi": "10.1021/acsomega.1c03760",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:189"
+    },
+    {
+      "species": "durian",
+      "title": "Improved glucose recovery from durian peel by alkaline-catalyzed steam pretreatment.",
+      "pmid": "34466294",
+      "doi": "10.7717/peerj.12026",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:191"
+    },
+    {
+      "species": "durian",
+      "title": "Investigation of key chemical species from durian peduncles and their correlations with durian maturity.",
+      "pmid": "34172759",
+      "doi": "10.1038/s41598-021-92492-6",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:194"
+    },
+    {
+      "species": "durian",
+      "title": "A novel biosustainable durian antimicrobial gel dressing.",
+      "pmid": "33979217",
+      "doi": "10.12968/jowc.2021.30.5.330",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:196"
+    },
+    {
+      "species": "durian",
+      "title": "Data Assessment on the relationship between typical weather data and electricity consumption of academic building in Melaka.",
+      "pmid": "33614870",
+      "doi": "10.1016/j.dib.2021.106797",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:205"
+    },
+    {
+      "species": "durian",
+      "title": "Numerical simulation of tropical cyclone generated waves in South China Sea during winter monsoon surge.",
+      "pmid": "33335151",
+      "doi": "10.1038/s41598-020-79204-2",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:208"
+    },
+    {
+      "species": "durian",
+      "title": "Bodyweight status misperception among reproductive-aged women in primary care settings.",
+      "pmid": "33329864",
+      "doi": "",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:209"
+    },
+    {
+      "species": "durian",
+      "title": "Technology innovations for food security in Singapore: A case study of future food systems for an increasingly natural resource-scarce world.",
+      "pmid": "32834499",
+      "doi": "10.1016/j.tifs.2020.06.013",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:217"
+    },
+    {
+      "species": "durian",
+      "title": "Trends and advances in edible biopolymer coating for tropical fruit: A review.",
+      "pmid": "32517939",
+      "doi": "10.1016/j.foodres.2020.109208",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:222"
+    },
+    {
+      "species": "durian",
+      "title": "Adaptive Variable Stiffness Particle Phalange for Robust and Durable Robotic Grasping.",
+      "pmid": "32319857",
+      "doi": "10.1089/soro.2019.0089",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:223"
+    },
+    {
+      "species": "durian",
+      "title": "Mechanical properties and energy absorption characteristics of tropical fruit durian (Durio zibethinus).",
+      "pmid": "31929094",
+      "doi": "10.1016/j.jmbbm.2019.103603",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:228"
+    },
+    {
+      "species": "durian",
+      "title": "Branching Out to Speciation in a Model of Fractionation: The Malvaceae.",
+      "pmid": "31869797",
+      "doi": "10.1109/TCBB.2019.2955649",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:229"
+    },
+    {
+      "species": "durian",
+      "title": "Propacin, a coumarinolignoid isolated from durian, inhibits the lipopolysaccharide-induced inflammatory response in macrophages through the MAPK and NF-κB pathways.",
+      "pmid": "31859327",
+      "doi": "10.1039/c9fo02202c",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:230"
+    },
+    {
+      "species": "durian",
+      "title": "Does a durian smell like a rose? The dangers of jargon.",
+      "pmid": "31570782",
+      "doi": "10.1038/s41409-019-0704-0",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:238"
+    },
+    {
+      "species": "durian",
+      "title": "How typhoons trigger turbidity currents in submarine canyons.",
+      "pmid": "31239463",
+      "doi": "10.1038/s41598-019-45615-z",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:244"
+    },
+    {
+      "species": "durian",
+      "title": "Measurement of film permeability in 2D foams.",
+      "pmid": "31197676",
+      "doi": "10.1140/epje/i2019-11834-7",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:245"
+    },
+    {
+      "species": "durian",
+      "title": "Durian Fruits Discovered as Superior Folate Sources.",
+      "pmid": "30547032",
+      "doi": "10.3389/fnut.2018.00114",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:253"
+    },
+    {
+      "species": "durian",
+      "title": "New species of genus Mudaria Moore, 1893 and the first record of Mudaria cornifrons Moore, 1893 from Thailand (Lepidoptera, Noctuidae, Noctuinae).",
+      "pmid": "30486064",
+      "doi": "10.11646/zootaxa.4500.2.10",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:254"
+    },
+    {
+      "species": "durian",
+      "title": "Coarsening and mechanics in the bubble model for wet foams.",
+      "pmid": "30110853",
+      "doi": "10.1103/PhysRevE.98.012607",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:261"
+    },
+    {
+      "species": "durian",
+      "title": "Probiotic Properties of Exopolysaccharide-Producing Lactobacillus Strains Isolated from Tempoyak.",
+      "pmid": "29438288",
+      "doi": "10.3390/molecules23020398",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:270"
+    },
+    {
+      "species": "durian",
+      "title": "Effect of interstitial fluid on the fraction of flow microstates that precede clogging in granular hoppers.",
+      "pmid": "28415287",
+      "doi": "10.1103/PhysRevE.95.032904",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:286"
+    },
+    {
+      "species": "durian",
+      "title": "Intermittency and velocity fluctuations in hopper flows prone to clogging.",
+      "pmid": "27627374",
+      "doi": "10.1103/PhysRevE.94.022901",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:293"
+    },
+    {
+      "species": "durian",
+      "title": "Food Compounds Activating Thermosensitive TRP Channels in Asian Herbal and Medicinal Foods.",
+      "pmid": "26598901",
+      "doi": "10.3177/jnsv.61.S86",
+      "source": "榴莲/榴莲_30年PubMed文献.xlsx#文章列表:301"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Fruit consumption as a gut health improving strategy to lower arsenic exposure risk from rice consumption.",
+      "pmid": "42211785",
+      "doi": "10.1016/j.eehl.2026.100241",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:7"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Red pitaya peel as encapsulant for hybrid crude palm oil nanoparticles: Characterization and 60-day stability.",
+      "pmid": "42202396",
+      "doi": "10.1016/j.foodchem.2026.149786",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:8"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Valorization of Pitaya (Selenicereus monacanthus) Peels: Proof of Concept for Food Formulation.",
+      "pmid": "42128980",
+      "doi": "10.1007/s11130-026-01507-y",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:15"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Screening of Plant Growth Regulators for Promoting Rooting of Pitaya Cuttings.",
+      "pmid": "42122849",
+      "doi": "10.3390/plants15091357",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:17"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Editorial: Advances in fruit-growing systems as a key factor of successful production, volume II.",
+      "pmid": "41959574",
+      "doi": "10.3389/fpls.2026.1831745",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:28"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Pitaya as a New Alternative Crop for Iberian Peninsula: Cultural Practices.",
+      "pmid": "41829838",
+      "doi": "10.3390/plants15050807",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:34"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Assessment of climatic parameter variation and its impact on sustainable agriculture in Dir Upper Pakistan with mitigation and adaptation strategies.",
+      "pmid": "41723161",
+      "doi": "10.1038/s41598-025-24940-6",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:40"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Effect of type and concentration of hydrocolloids on the rheology, water mobility, and 3D printing properties of pitaya fruit-based ink.",
+      "pmid": "41567326",
+      "doi": "10.3389/fnut.2025.1668661",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:46"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Ultrasonic-assisted betalain extraction from red dragon fruit pulp (Hylocereus polyrhizus) using response surface methodology.",
+      "pmid": "41453279",
+      "doi": "10.1016/j.foodchem.2025.147658",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:52"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Ozone treatment improved the extractability, bioaccessibility, and hypoglycemic potential of fresh-cut pitaya polyphenols.",
+      "pmid": "41393950",
+      "doi": "10.3389/fnut.2025.1707700",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:54"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Juicing up performance: The impact of pitaya on biochemical and oxidative responses in acute swimming exercise.",
+      "pmid": "41259561",
+      "doi": "10.1590/0001-3765202520241238",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:61"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Green synthesis and functional evaluation of zinc oxide nanoparticles from red dragon fruit peel.",
+      "pmid": "41136590",
+      "doi": "10.1038/s41598-025-21333-7",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:67"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Morphoanatomical aspects of stem cuttings of Selenicereus setaceus (Salm-Dyck) A. Berger ex Werderm. (Cactaceae).",
+      "pmid": "41124410",
+      "doi": "10.1590/1519-6984.293866",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:70"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "HpbHLH48 and HpbHLH64 facilitated betalain biosynthesis via transactivation of HpADH1, HpCYP76AD1-1, HpDODA1, and HpB5GT5 in pitaya.",
+      "pmid": "40915116",
+      "doi": "10.1016/j.plaphy.2025.110426",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:84"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Effect of Ultrasonic Frequencies on the Aqueous Extraction of Polyphenols, Chlorogenic Acid, and Quercetin from the Whole Fruit of Pitaya (Hylocereus spp.).",
+      "pmid": "40807428",
+      "doi": "10.3390/molecules30153253",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:90"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Novel Green Synthesis Route of ZnO Nanoparticles for Dielectric Applications.",
+      "pmid": "40648698",
+      "doi": "10.3390/nano15130991",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:100"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Giving new life to an outdated spectrofluorometer for static and time-resolved UCNP optical characterization.",
+      "pmid": "40487307",
+      "doi": "10.1039/d5na00330j",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:104"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Biotransformation of Carvone by Hylocereus undatus Shoots.",
+      "pmid": "40393447",
+      "doi": "10.1002/cbdv.202500475",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:113"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Path Planning for Dragon-Fruit-Harvesting Robotic Arm Based on XN-RRT* Algorithm.",
+      "pmid": "40363211",
+      "doi": "10.3390/s25092773",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:115"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Papular Clear Cell Hyperplasia of the Eccrine Duct with Histological Pitaya Sign: Not Just \"Heat Rash\"!",
+      "pmid": "40336224",
+      "doi": "10.2340/actadv.v105.43492",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:119"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "First Report of Cactus Weevil Feeding on Selenicereus undatus in Jalisco, Mexico.",
+      "pmid": "40284050",
+      "doi": "10.3390/plants14081162",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:122"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Semantic priming supports infants' ability to learn names of unseen objects.",
+      "pmid": "40267063",
+      "doi": "10.1371/journal.pone.0321775",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:124"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Hydroalcoholic extract of pitaya (Hylocereus guatemalensis) supplied in the diet for blue Betta splendens and its effects on fish pigmentation.",
+      "pmid": "40243806",
+      "doi": "10.1590/0001-3765202520240212",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:126"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Pitaya stem polysaccharide promotes wound healing by modulating macrophage polarization via single-cell RNA sequencing evidence.",
+      "pmid": "40158567",
+      "doi": "10.1016/j.ijbiomac.2025.142653",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:130"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Hydrophobic interactions enhance doxorubicin delivery from hyaluronic acid nanogels.",
+      "pmid": "40010614",
+      "doi": "10.1016/j.ejpb.2025.114676",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:136"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "BAHD acyltransferase from dragon fruit enables production of phyllocactin in engineered yeast.",
+      "pmid": "39929182",
+      "doi": "10.1093/femsyr/foae041",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:143"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Antidiabetic Potential of Hylocereus Polyrhizus and Hylocereus Megalanthus Fruit Peel: An In vitro Study.",
+      "pmid": "39926795",
+      "doi": "10.4103/jpbs.jpbs_1289_24",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:144"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Yellow Pitahaya (Selenicereus megalanthus Haw.): The Less Known of the Pitahayas.",
+      "pmid": "39856868",
+      "doi": "10.3390/foods14020202",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:146"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Role of mitochondrial complex I genes in host plant expansion of Bactrocera tau (Tephritidae: Diptera) by CRISPR/Cas9 system.",
+      "pmid": "39829059",
+      "doi": "10.1111/1744-7917.13495",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:147"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Ozone treatment regulated the anti-exercise fatigue effect of fresh-cut pitaya polyphenol extracts.",
+      "pmid": "39654536",
+      "doi": "10.3389/fnut.2024.1500681",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:157"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Study of Using Ultrasonic Waves in the Producing Dried Dragon Fruit Peel Processes.",
+      "pmid": "39620170",
+      "doi": "10.1155/2024/8619783",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:160"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Eco-friendly microwave-assisted extraction of fruit and vegetable peels demonstrates great biofunctional properties.",
+      "pmid": "39619976",
+      "doi": "10.1002/fsn3.4463",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:161"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Effect of gamma radiation on freeze-dried red pitaya (Hylocereus costaricensis) skin powder: An EPR study to assess the original dose.",
+      "pmid": "39461185",
+      "doi": "10.1016/j.saa.2024.125144",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:169"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Microfiltered red-purple pitaya concentrate: A promising multifunctional food-derived colorant.",
+      "pmid": "39289801",
+      "doi": "10.1111/1750-3841.17351",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:178"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "The Discovery, Molecular Cloning, and Characterization of Dextransucrase LmDexA and Its Active Truncated Mutant from Leuconostoc mesenteroides NN710.",
+      "pmid": "38999194",
+      "doi": "10.3390/molecules29133242",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:201"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Unique regulatory network of dragon fruit simultaneously mitigates the effect of vanadium pollutant and environmental factors.",
+      "pmid": "38952344",
+      "doi": "10.1111/ppl.14416",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:204"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Optimizing germination: comparative assessment of various growth media on dragon fruit germination and early growth.",
+      "pmid": "38862876",
+      "doi": "10.1186/s12870-024-05247-6",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:208"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Identification of dragon trees and fruits in ham Thuan Bac growing areas, Phan Thiet city, Binh Thuan province, Vietnam.",
+      "pmid": "38803938",
+      "doi": "10.1016/j.heliyon.2024.e31233",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:209"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Antimicrobial and Antibiofilm Effects of Silver-Copper Nanoparticles Obtained by Green Synthesis Against Streptococcus mutans.",
+      "pmid": "38756251",
+      "doi": "10.7759/cureus.58368",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:212"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "A comparative study on biosynthesized silver nanoparticles from H. undatus fruit peel and their therapeutic applications.",
+      "pmid": "38499901",
+      "doi": "10.1186/s11671-024-03995-w",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:225"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "EasyDAM_V4: Guided-GAN-based cross-species data labeling for fruit detection with significant shape difference.",
+      "pmid": "38487543",
+      "doi": "10.1093/hr/uhae007",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:226"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "A Versatile Board for Event-Driven Data Acquisition.",
+      "pmid": "38475168",
+      "doi": "10.3390/s24051631",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:228"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Benign Brenner tumor pathology: the 'dragon fruit sign'.",
+      "pmid": "38388179",
+      "doi": "10.1136/ijgc-2024-005353",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:230"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Supercritical extraction of betalains from the peel of different pitaya species.",
+      "pmid": "38353869",
+      "doi": "10.1002/jsfa.13383",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:232"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "DomAda-FruitDet: Domain-Adaptive Anchor-Free Fruit Detection Model for Auto Labeling.",
+      "pmid": "38273867",
+      "doi": "10.34133/plantphenomics.0135",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:236"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "A scalable scanning transfer cavity laser stabilization scheme based on the Red Pitaya STEMlab platform.",
+      "pmid": "37791857",
+      "doi": "10.1063/5.0169021",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:255"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Topical Cream Derived From Hylocereus polyrhizus (Red Dragon Fruit) Extract Accelerates Wound Healing Through Increased Hydroxyproline and Fibroblast Growth Factor 2 Levels: A Pilot Study.",
+      "pmid": "37774168",
+      "doi": "10.1097/PSN.0000000000000526",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:256"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Pitaya as a New Alternative Crop for Iberian Peninsula: Biology and Edaphoclimatic Requirements.",
+      "pmid": "37765376",
+      "doi": "10.3390/plants12183212",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:257"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Multi-wavelength deep-ultraviolet absorbance detector based upon program-controlled pulsing light-emitting diodes.",
+      "pmid": "37722175",
+      "doi": "10.1016/j.chroma.2023.464382",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:262"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Identification of HuSWEET Family in Pitaya (Hylocereus undatus) and Key Roles of HuSWEET12a and HuSWEET13d in Sugar Accumulation.",
+      "pmid": "37629062",
+      "doi": "10.3390/ijms241612882",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:266"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Betacyanins obtained from alternative novel sources as natural food colorant additives: incorporated in savory and sweet food products.",
+      "pmid": "37606616",
+      "doi": "10.1039/d3fo01660a",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:268"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Optimization of Ultrasound-Assisted Extraction of Dietary Fiber from Yellow Dragon Fruit Peels and Its Application in Low-Fat Alpaca-Based Sausages.",
+      "pmid": "37569214",
+      "doi": "10.3390/foods12152945",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:270"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Comparison of fumigation efficacy of methyl bromide alone and phosphine applied either alone or simultaneously or sequentially against Bactrocera correcta in Selenicereus undatus (red pitaya) fruit.",
+      "pmid": "37534537",
+      "doi": "10.1002/ps.7697",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:271"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Scanning Probe Microscopy controller with advanced sampling support.",
+      "pmid": "37497345",
+      "doi": "10.1016/j.ohx.2023.e00451",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:274"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Anatomical and Biomechanical Properties of the Junction between Stem and Aerial Roots of Selenicereus undatus.",
+      "pmid": "37447104",
+      "doi": "10.3390/plants12132544",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:277"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Biocontrol potential of lipopeptides produced by Paenibacillus polymyxa AF01 against Neoscytalidium dimidiatum in pitaya.",
+      "pmid": "37266020",
+      "doi": "10.3389/fmicb.2023.1188722",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:280"
+    },
+    {
+      "species": "dragon_fruit",
+      "title": "Identification of HuSPL family and key role of HuSPL12 in regulation of betalain biosynthesis in pitaya.",
+      "pmid": "37133873",
+      "doi": "10.1111/ppl.13923",
+      "source": "火龙果/火龙果_30年PubMed文献.xlsx#文章列表:283"
+    }
+  ],
+  "coverage_note": "Counts are bibliographic coverage, not proof that every possible study or metabolite has been captured."
+}

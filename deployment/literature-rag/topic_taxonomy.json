@@ -1,0 +1,90 @@
+{
+  "genetics_genomics_breeding": {
+    "label_zh": "遗传、基因组与育种",
+    "keywords": ["genom", "genetic", "germplasm", "breeding", "cultivar", "variet", "QTL", "GWAS", "marker", "SNP", "haplotype", "chromosome", "pangenom", "plastome", "chloroplast sequence", "基因组", "遗传", "育种", "种质", "品种", "分子标记", "叶绿体序列"]
+  },
+  "transcriptomics_expression": {
+    "label_zh": "转录组与基因表达",
+    "keywords": ["transcriptom", "RNA-seq", "gene expression", "differential expression", "DEG", "TPM", "FPKM", "qRT-PCR", "转录组", "基因表达", "差异表达"]
+  },
+  "metabolites_phytochemistry": {
+    "label_zh": "代谢物与植物化学",
+    "keywords": ["metabol", "phytochem", "phenolic", "flavonoid", "anthocyan", "carotenoid", "terpen", "alkaloid", "xanthone", "mangiferin", "volatile", "aroma", "代谢", "植物化学", "酚", "黄酮", "花青素", "类胡萝卜素", "萜", "生物碱", "芒果苷", "挥发物", "香气"]
+  },
+  "proteomics_enzymes": {
+    "label_zh": "蛋白质组、蛋白与酶",
+    "keywords": ["proteom", "protein", "enzyme", "kinase", "phosphat", "酶活", "蛋白质组", "蛋白", "激酶"]
+  },
+  "epigenetics_regulation": {
+    "label_zh": "表观遗传与调控",
+    "keywords": ["epigen", "methylat", "chromatin", "histone", "small RNA", "miRNA", "lncRNA", "表观遗传", "甲基化", "染色质", "组蛋白", "小RNA"]
+  },
+  "development_flowering_ripening": {
+    "label_zh": "生长发育、开花与果实成熟",
+    "keywords": ["develop", "flower", "floral", "pollinat", "embryo", "seed", "fruit set", "ripen", "maturation", "senescence", "发育", "开花", "授粉", "胚", "种子", "坐果", "成熟", "衰老"]
+  },
+  "postharvest_storage_quality": {
+    "label_zh": "采后、贮藏与品质",
+    "keywords": ["postharvest", "storage", "shelf life", "cold chain", "chilling injury", "browning", "firmness", "quality", "采后", "贮藏", "货架期", "冷害", "褐变", "品质"]
+  },
+  "biotic_stress_disease_pests": {
+    "label_zh": "病害、虫害与生物胁迫",
+    "keywords": ["disease", "pathogen", "fung", "bacter", "virus", "viroid", "pest", "insect", "nematode", "anthracnose", "rot", "resistance", "病害", "病原", "真菌", "细菌", "病毒", "虫害", "线虫", "炭疽", "抗病"]
+  },
+  "abiotic_stress": {
+    "label_zh": "非生物胁迫",
+    "keywords": ["abiotic", "drought", "salt", "salinity", "heat stress", "cold stress", "waterlogging", "heavy metal", "oxidative stress", "干旱", "盐胁迫", "高温胁迫", "低温胁迫", "涝", "重金属", "氧化胁迫"]
+  },
+  "physiology_hormones_nutrition": {
+    "label_zh": "植物生理、激素与矿质营养",
+    "keywords": ["physiolog", "photosynth", "respiration", "hormone", "auxin", "ethylene", "abscisic", "gibberell", "cytokinin", "mineral", "nutrient", "生理", "光合", "呼吸", "激素", "生长素", "乙烯", "脱落酸", "赤霉素", "矿质", "营养元素"]
+  },
+  "cultivation_soil_irrigation": {
+    "label_zh": "栽培、土壤与水肥管理",
+    "keywords": ["cultivation", "agronom", "orchard", "soil", "fertili", "irrigat", "pruning", "canopy", "yield", "栽培", "果园", "土壤", "施肥", "灌溉", "修剪", "产量"]
+  },
+  "propagation_tissue_culture": {
+    "label_zh": "繁殖、嫁接与组织培养",
+    "keywords": ["propagat", "graft", "rootstock", "tissue culture", "micropropagat", "somatic embry", "callus", "繁殖", "嫁接", "砧木", "组织培养", "体细胞胚", "愈伤"]
+  },
+  "processing_food_safety_byproducts": {
+    "label_zh": "加工、食品安全与副产物利用",
+    "keywords": ["processing", "juice", "wine", "starch", "pectin", "cellulose", "flour", "drying", "ferment", "packag", "preserv", "food safety", "foodborne", "contamination", "residue", "by-product", "waste", "加工", "果汁", "果酒", "淀粉", "果胶", "纤维素", "干燥", "发酵", "包装", "保鲜", "食品安全", "污染", "残留", "副产物", "废弃物"]
+  },
+  "nutrition_pharmacology_toxicology": {
+    "label_zh": "营养、药理与毒理",
+    "keywords": ["nutrition", "bioactiv", "antioxid", "anti-inflammatory", "anticancer", "diabetes", "obesity", "pharmacolog", "toxic", "clinical", "营养", "生物活性", "抗氧化", "抗炎", "抗癌", "糖尿病", "肥胖", "药理", "毒理", "临床"]
+  },
+  "microbiome_endophytes": {
+    "label_zh": "微生物组、内生菌与根际",
+    "keywords": ["microbiom", "microbiota", "endophy", "rhizosphere", "phyllosphere", "microbial commun", "微生物组", "菌群", "内生菌", "根际", "叶际"]
+  },
+  "ecology_taxonomy_evolution": {
+    "label_zh": "生态、分类、进化与保护",
+    "keywords": ["ecolog", "taxonomy", "phylogen", "evolution", "diversity", "conservation", "distribution", "invasive", "生态", "分类", "系统发育", "进化", "多样性", "保护", "分布", "入侵"]
+  },
+  "phenotyping_imaging_computation": {
+    "label_zh": "表型、成像与计算方法",
+    "keywords": ["phenotyp", "imaging", "image analys", "remote sensing", "spectroscop", "machine learning", "deep learning", "computer vision", "prediction model", "表型", "成像", "图像分析", "遥感", "光谱", "机器学习", "深度学习", "计算机视觉"]
+  },
+  "integrative_omics_methods": {
+    "label_zh": "多组学与研究方法",
+    "keywords": ["multi-omics", "multiomics", "integrative omics", "applications of omics", "systems biology", "functional annotation", "database", "bioinformatics", "多组学", "整合组学", "系统生物学", "功能注释", "生物信息"]
+  },
+  "sensory_flavor_consumer": {
+    "label_zh": "感官、风味与消费研究",
+    "keywords": ["sensory", "flavor", "flavour", "odor", "odour", "taste", "hedonic", "consumer", "acceptability", "感官", "风味", "气味", "滋味", "消费者", "接受度"]
+  },
+  "allergy_clinical_safety": {
+    "label_zh": "过敏、临床个案与食用安全",
+    "keywords": ["allerg", "anaphyl", "cross-react", "immunoreactiv", "case report", "injury", "hyperkalaemia", "hyperkalemia", "adverse event", "过敏", "过敏反应", "交叉反应", "病例报告", "损伤", "高钾血症", "不良反应"]
+  },
+  "biomaterials_environment_energy": {
+    "label_zh": "生物材料、环境治理与能源利用",
+    "keywords": ["biochar", "biosorbent", "adsorb", "nanocellulose", "nanofiber", "hydrogel", "composite", "biocomposite", "aerogel", "carbon dot", "carbon quantum", "pyrolysis", "anaerobic digestion", "methane production", "battery", "supercapacitor", "solar evapor", "desalination", "wastewater", "removal of", "生物炭", "吸附", "纳米纤维素", "水凝胶", "复合材料", "气凝胶", "碳点", "热解", "厌氧消化", "甲烷", "电池", "超级电容器", "废水"]
+  },
+  "analytical_detection_methods": {
+    "label_zh": "分析检测与传感方法",
+    "keywords": ["determination of", "detection of", "quantification", "chromatograph", "mass spectrom", "HPLC", "GC-MS", "LC-MS", "sensor", "immunoassay", "colorimetric", "microfluidic", "analytical method", "测定", "检测", "定量", "色谱", "质谱", "传感器", "免疫分析", "比色", "微流控"]
+  }
+}
