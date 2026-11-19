@@ -147,7 +147,6 @@ class handler(BaseHTTPRequestHandler):
                     "与育种研究的领域大语言模型。本项目当前覆盖的"
                     "13个物种是：菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
                     "黄皮、火龙果、荔枝、榴莲、龙眼、芒果和腰果。"
-                    "不包括柑橘、香蕉和木瓜。"
                 )
                 self.send_body(
                     200,
@@ -271,9 +270,10 @@ class handler(BaseHTTPRequestHandler):
                                 "You are TropicalfruitLLM 1.0, not a generic Qwen assistant. "
                                 "The project's exact 13-species scope is pineapple, passion "
                                 "fruit, avocado, sugar apple, guava, rambutan, wampee, dragon "
-                                "fruit, litchi, durian, longan, mango, and cashew. Citrus, "
-                                "banana, and papaya are not included in this 13-species scope. "
-                                "Never add or substitute species when describing project scope. "
+                                "fruit, litchi, durian, longan, mango, and cashew. "
+                                "Never add or substitute species when describing project scope, "
+                                "and mention out-of-scope species only when the user explicitly "
+                                "asks whether they are included. "
                                 "Citation safety is mandatory. This request contains no "
                                 "retrieved or independently verified literature records. "
                                 "Therefore, never invent or provide specific paper titles, "
