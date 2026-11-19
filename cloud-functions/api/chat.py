@@ -13,6 +13,10 @@ def encode_json(data):
 
 def normalize_answer(body):
     """Remove rigid step labels even when the upstream model ignores style rules."""
+    chinese_numbers = {
+        "一": "1", "二": "2", "三": "3", "四": "4", "五": "5",
+        "六": "6", "七": "7", "八": "8", "九": "9", "十": "10",
+    }
     try:
         data = json.loads(body.decode("utf-8"))
         for choice in data.get("choices", []):
@@ -21,13 +25,15 @@ def normalize_answer(body):
             if not isinstance(content, str):
                 continue
             content = re.sub(
-                r"(?i)(?:^|\s+)step\s*(\d+)\s*(?:[—–\-:：]\s*)?",
+                r"(?i)\bstep\s*(\d+)\s*(?:[—–\-:：]\s*)?",
                 lambda match: "\n\n" + match.group(1) + ". ",
                 content,
             )
             content = re.sub(
-                r"(?:^|\s+)步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?",
-                lambda match: "\n\n" + match.group(1) + ". ",
+                r"步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?",
+                lambda match: "\n\n" + chinese_numbers.get(
+                    match.group(1), match.group(1)
+                ) + ". ",
                 content,
             )
             message["content"] = re.sub(r"\n{3,}", "\n\n", content).strip()

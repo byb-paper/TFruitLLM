@@ -2,9 +2,10 @@ const messages=document.querySelector('#messages'),form=document.querySelector('
 const submitButton=form.querySelector('button');
 const conversation=[];
 function normalizeAnswer(text=''){
+  const chineseNumbers={'一':'1','二':'2','三':'3','四':'4','五':'5','六':'6','七':'7','八':'8','九':'9','十':'10'};
   return String(text)
-    .replace(/(?:^|\s+)Step\s*(\d+)\s*(?:[—–\-:：]\s*)?/gi,(_,number)=>`\n\n${number}. `)
-    .replace(/(?:^|\s+)步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?/g,(_,number)=>`\n\n${number}. `)
+    .replace(/\bStep\s*(\d+)\s*(?:[—–\-:：]\s*)?/gi,(_,number)=>`\n\n${number}. `)
+    .replace(/步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?/g,(_,number)=>`\n\n${chineseNumbers[number]||number}. `)
     .replace(/\n{3,}/g,'\n\n')
     .trim();
 }
