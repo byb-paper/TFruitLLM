@@ -189,7 +189,21 @@ class handler(BaseHTTPRequestHandler):
                                 "unnecessary headings, repetitive framing, and rigid four-part "
                                 "answers. Keep the length proportional to the question, state "
                                 "uncertainty where evidence is insufficient, and use clear "
-                                "scientific prose."
+                                "scientific prose. "
+                                "Citation safety is mandatory. This request contains no "
+                                "retrieved or independently verified literature records. "
+                                "Therefore, never invent or provide specific paper titles, "
+                                "authors, journals, publication years, volumes, pages, URLs, "
+                                "DOIs, PMIDs, accession numbers, or numbered reference lists "
+                                "from memory. Do not imply that a citation was verified merely "
+                                "because it sounds plausible. If the user asks for literature "
+                                "or sources, say briefly that verified literature retrieval is "
+                                "not available in the current public interface, then provide "
+                                "useful search keywords or explain what evidence would be "
+                                "needed. General biological knowledge may be summarized "
+                                "cautiously without citations, but uncertain gene, metabolite, "
+                                "pathway, quantitative, or species-specific claims must be "
+                                "clearly labeled as unverified rather than guessed."
                             ),
                         },
                         *conversation_messages[-12:],
