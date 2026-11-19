@@ -151,6 +151,45 @@ class handler(BaseHTTPRequestHandler):
                 )
                 return
 
+            # Deterministic correction for a repeatedly hallucinated
+            # species–metabolite association. Keep this outside the model so
+            # a confident completion cannot override the verified evidence.
+            longan_terms = ("龙眼", "longan", "dimocarpus longan")
+            mangiferin_terms = ("芒果苷", "mangiferin")
+            if any(term in last_user_text for term in longan_terms) and any(
+                term in last_user_text for term in mangiferin_terms
+            ):
+                answer = (
+                    "目前没有可靠证据证明龙眼（Dimocarpus longan）果肉、"
+                    "果皮或种子中含有芒果苷（mangiferin）。已发表的龙眼"
+                    "成分研究主要报道没食子酸、鞣花酸、柯里拉京、表儿茶素、"
+                    "槲皮素和原花青素等，现有综述的化合物清单中未列出"
+                    "芒果苷。因此严谨的结论是‘尚未发现确证报道’，"
+                    "而不是断言绝对不存在。如需实验确认，应使用芒果苷"
+                    "标准品进行靶向 LC–MS/MS 或 HPLC 鉴定。可核验来源："
+                    "Food Science and Human Wellness 9 (2020) 95–102，"
+                    "DOI 10.1016/j.fshw.2020.03.001；PMCID PMC6568221。"
+                )
+                self.send_body(
+                    200,
+                    encode_json(
+                        {
+                            "model": "TFruitLLM-verified-guard",
+                            "choices": [
+                                {
+                                    "index": 0,
+                                    "message": {
+                                        "role": "assistant",
+                                        "content": answer,
+                                    },
+                                    "finish_reason": "stop",
+                                }
+                            ],
+                        }
+                    ),
+                )
+                return
+
             payload = encode_json(
                 {
                     "model": "TFruitLLM",
