@@ -17,7 +17,6 @@ document.querySelector('.species-filter')?.addEventListener('click',event=>{
 const messages=document.querySelector('#messages'),form=document.querySelector('#chatForm'),input=document.querySelector('#question');
 const submitButton=form.querySelector('button');
 const conversation=[];
-const answerStyle={role:'system',content:'请像一位友好、严谨的热带果树科研同行一样自然交流。直接回应核心问题，但不要像数据库检索结果或考试答题模板一样生硬。简单问题用自然短段落回答；需要列举基因、代谢物或研究结果时，一项一项清楚列出，并用简短说明连接其生物学意义。只有存在真实先后关系时才编号。不要复述问题，不要展示分析过程，不要使用Step、问题定位、数据提取、完整性检查、回答构建等措辞。证据不足时用自然语言说明目前能确认什么、还缺什么。'};
 function normalizeAnswer(text=''){
   return String(text)
     .replace(/(?:^|\s+)Step\s*(\d+)\s*(?:[—–\-:：]\s*)?/gi,(_,number)=>`\n\n${number}. `)
@@ -58,7 +57,7 @@ async function ask(text){
   const pending=addMessage('model','TropicalfruitLLM 1.0 is examining the evidence…','pending');
   input.value='';input.disabled=true;submitButton.disabled=true;
   try{
-    const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[answerStyle,...conversation],max_tokens:1024,temperature:.4})});
+    const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation,max_tokens:1024,temperature:.4})});
     const contentType=response.headers.get('content-type')||'';
     if(!contentType.includes('application/json')){
       const body=await response.text();

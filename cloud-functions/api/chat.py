@@ -88,6 +88,26 @@ class handler(BaseHTTPRequestHandler):
                 )
                 return
 
+            # The proxy owns the single system prompt. Ignore any system
+            # messages supplied by browsers or older cached frontends so the
+            # upstream chat template always receives the system message first.
+            conversation_messages = [
+                message
+                for message in messages
+                if isinstance(message, dict)
+                and message.get("role") in {"user", "assistant"}
+            ]
+            if not any(
+                message.get("role") == "user"
+                and str(message.get("content", "")).strip()
+                for message in conversation_messages
+            ):
+                self.send_body(
+                    400,
+                    encode_json({"error": "A research question is required."}),
+                )
+                return
+
             last_user_text = next(
                 (
                     str(message.get("content", "")).strip().lower()
@@ -166,7 +186,7 @@ class handler(BaseHTTPRequestHandler):
                                 "scientific prose."
                             ),
                         },
-                        *messages[-12:],
+                        *conversation_messages[-12:],
                     ],
                     "temperature": request_data.get("temperature", 0.4),
                     "max_tokens": min(
