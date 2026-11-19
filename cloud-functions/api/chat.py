@@ -130,6 +130,45 @@ class handler(BaseHTTPRequestHandler):
                 "hi": "Hello! How can I help with your tropical fruit research?",
                 "hey": "Hello! How can I help with your tropical fruit research?",
             }
+
+            identity_questions = {
+                "你是谁",
+                "你是谁？",
+                "你是什么模型",
+                "你是什么模型？",
+                "who are you",
+                "who are you?",
+                "what model are you",
+                "what model are you?",
+            }
+            if last_user_text in identity_questions:
+                identity_answer = (
+                    "我是 TropicalfruitLLM 1.0，一个面向热带果树生物学"
+                    "与育种研究的领域大语言模型。本项目当前覆盖的"
+                    "13个物种是：菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
+                    "黄皮、火龙果、荔枝、榴莲、龙眼、芒果和腰果。"
+                    "不包括柑橘、香蕉和木瓜。"
+                )
+                self.send_body(
+                    200,
+                    encode_json(
+                        {
+                            "model": "TropicalfruitLLM-verified-identity",
+                            "choices": [
+                                {
+                                    "index": 0,
+                                    "message": {
+                                        "role": "assistant",
+                                        "content": identity_answer,
+                                    },
+                                    "finish_reason": "stop",
+                                }
+                            ],
+                        }
+                    ),
+                )
+                return
+
             if last_user_text in greeting_replies:
                 self.send_body(
                     200,
@@ -229,6 +268,12 @@ class handler(BaseHTTPRequestHandler):
                                 "answers. Keep the length proportional to the question, state "
                                 "uncertainty where evidence is insufficient, and use clear "
                                 "scientific prose. "
+                                "You are TropicalfruitLLM 1.0, not a generic Qwen assistant. "
+                                "The project's exact 13-species scope is pineapple, passion "
+                                "fruit, avocado, sugar apple, guava, rambutan, wampee, dragon "
+                                "fruit, litchi, durian, longan, mango, and cashew. Citrus, "
+                                "banana, and papaya are not included in this 13-species scope. "
+                                "Never add or substitute species when describing project scope. "
                                 "Citation safety is mandatory. This request contains no "
                                 "retrieved or independently verified literature records. "
                                 "Therefore, never invent or provide specific paper titles, "
