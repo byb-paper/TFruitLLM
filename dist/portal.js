@@ -33,6 +33,25 @@ function addMessage(role,text,state=''){
   messages.scrollTop=messages.scrollHeight;
   return element;
 }
+function extractErrorMessage(result,status){
+  const candidates=[
+    result?.detail,
+    result?.error?.message,
+    result?.error?.detail,
+    result?.error,
+    result?.message,
+  ];
+  for(const candidate of candidates){
+    if(typeof candidate==='string'&&candidate.trim())return candidate.trim();
+    if(candidate&&typeof candidate==='object'){
+      try{
+        const serialized=JSON.stringify(candidate);
+        if(serialized&&serialized!=='{}')return serialized;
+      }catch{}
+    }
+  }
+  return `Request failed (${status})`;
+}
 async function ask(text){
   const question=text.trim();if(!question||submitButton.disabled)return;
   addMessage('user',question);conversation.push({role:'user',content:question});
@@ -51,7 +70,7 @@ async function ask(text){
       throw new Error(`${hint} (HTTP ${response.status})`);
     }
     const result=await response.json();
-    if(!response.ok)throw new Error(result.detail||result.error||`Request failed (${response.status})`);
+    if(!response.ok)throw new Error(extractErrorMessage(result,response.status));
     const rawAnswer=result.choices?.[0]?.message?.content?.trim();
     const answer=normalizeAnswer(rawAnswer?.includes('</think>')
       ? rawAnswer.split('</think>').pop().trim()
