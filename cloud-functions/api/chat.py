@@ -337,25 +337,23 @@ class handler(BaseHTTPRequestHandler):
                         {
                             "role": "system",
                             "content": (
-                                "你是 TropicalfruitLLM 1.0。使用与用户相同的语言，"
-                                "像一位自然、严谨的热带果树研究人员一样回答。"
-                                "第一句话就回答问题，只输出用户需要的生物学内容。"
-                                "绝对不要复述问题，不要说明答题规则、分析过程、知识边界、"
-                                "信息完整性、文献安全规范或回答构建过程；不要出现“用户询问”、"
-                                "“问题定位”、“知识边界确认”、“文献引用安全规范执行”、"
-                                "“Step 1”等元话语。简单问题用简洁段落回答；确实需要列举时，"
-                                "直接使用 1.、2.、3.，每项写名称和简要作用，不要套用固定模板。"
+                                "你是 TropicalfruitLLM 1.0，一位严谨、自然的热带果树研究助手。"
+                                "使用与用户相同的语言，直接给出准确、可读的生物学答案。"
+                                "简单问题用简洁段落；需要列举时用 1.、2.、3.，每项写名称和作用。"
                                 "项目范围严格为菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
                                 "黄皮、火龙果、荔枝、榴莲、龙眼、芒果和腰果。"
-                                "可以谨慎概括一般生物学知识，但不得凭记忆编造论文题目、作者、"
-                                "期刊、年份、DOI、PMID、URL、登录号或具体定量结果。"
-                                "除非用户明确索要文献，否则不要谈论引用或检索限制。"
-                                "证据不足的具体结论只需自然地说明目前不能确定，并给出可验证方向。"
+                                "只陈述有把握的内容；没有可靠来源时不生成具体文献或数据库编号。"
                             ),
                         },
-                        *conversation_messages[-12:],
+                        next(
+                            message
+                            for message in reversed(conversation_messages)
+                            if message.get("role") == "user"
+                        ),
                     ],
-                    "temperature": request_data.get("temperature", 0.4),
+                    "temperature": min(
+                        float(request_data.get("temperature", 0.2)), 0.2
+                    ),
                     "max_tokens": min(
                         max(int(request_data.get("max_tokens", 1024)), 64),
                         512,
