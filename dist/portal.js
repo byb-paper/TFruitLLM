@@ -9,10 +9,27 @@ function normalizeAnswer(text=''){
     .replace(/\n{3,}/g,'\n\n')
     .trim();
 }
+function renderMessageContent(element,text=''){
+  element.replaceChildren();
+  const urlPattern=/(https?:\/\/[^\s]+)/g;
+  for(const part of String(text).split(urlPattern)){
+    if(!part)continue;
+    if(/^https?:\/\//.test(part)){
+      const link=document.createElement('a');
+      link.href=part;
+      link.target='_blank';
+      link.rel='noopener noreferrer';
+      link.textContent=part;
+      element.appendChild(link);
+    }else{
+      element.appendChild(document.createTextNode(part));
+    }
+  }
+}
 function addMessage(role,text,state=''){
   const element=document.createElement('div');
   element.className=`message ${role}${state?` ${state}`:''}`;
-  element.textContent=text;
+  renderMessageContent(element,text);
   messages.appendChild(element);
   messages.scrollTop=messages.scrollHeight;
   return element;
@@ -60,7 +77,7 @@ async function ask(text){
       ? rawAnswer.split('</think>').pop().trim()
       : rawAnswer);
     if(!answer)throw new Error('The model returned an empty response.');
-    pending.classList.remove('pending');pending.textContent=answer;
+    pending.classList.remove('pending');renderMessageContent(pending,answer);
     conversation.push({role:'assistant',content:answer});
   }catch(error){
     pending.classList.remove('pending');pending.classList.add('error');

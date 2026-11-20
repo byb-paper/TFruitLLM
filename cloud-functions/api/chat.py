@@ -3,12 +3,83 @@ import os
 import re
 import ssl
 import urllib.error
+import urllib.parse
 import urllib.request
 from http.server import BaseHTTPRequestHandler
 
 
 def encode_json(data):
     return json.dumps(data, ensure_ascii=False).encode("utf-8")
+
+
+GENOME_RESOURCES = (
+    ("菠萝", "Ananas comosus", ("菠萝", "pineapple", "ananas comosus")),
+    ("百香果", "Passiflora edulis", ("百香果", "passion fruit", "passionfruit", "passiflora edulis")),
+    ("鳄梨", "Persea americana", ("鳄梨", "牛油果", "avocado", "persea americana")),
+    ("番荔枝", "Annona squamosa", ("番荔枝", "sugar apple", "sweetsop", "annona squamosa")),
+    ("番石榴", "Psidium guajava", ("番石榴", "guava", "psidium guajava")),
+    ("红毛丹", "Nephelium lappaceum", ("红毛丹", "rambutan", "nephelium lappaceum")),
+    ("黄皮", "Clausena lansium", ("黄皮", "wampee", "wampi", "clausena lansium")),
+    ("火龙果", "Selenicereus undatus", ("火龙果", "dragon fruit", "pitaya", "selenicereus undatus", "hylocereus undatus")),
+    ("荔枝", "Litchi chinensis", ("荔枝", "litchi", "lychee", "litchi chinensis")),
+    ("榴莲", "Durio zibethinus", ("榴莲", "durian", "durio zibethinus")),
+    ("龙眼", "Dimocarpus longan", ("龙眼", "longan", "dimocarpus longan")),
+    ("芒果", "Mangifera indica", ("芒果", "mango", "mangifera indica")),
+    ("腰果", "Anacardium occidentale", ("腰果", "cashew", "anacardium occidentale")),
+)
+
+
+def genome_resource_text(resources):
+    blocks = []
+    for chinese_name, scientific_name, _aliases in resources:
+        encoded_name = urllib.parse.quote(scientific_name)
+        datasets_url = (
+            "https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon="
+            + encoded_name
+        )
+        assembly_query = urllib.parse.quote(f'"{scientific_name}"[Organism]')
+        assembly_url = (
+            "https://www.ncbi.nlm.nih.gov/assembly/?term=" + assembly_query
+        )
+        filename = scientific_name.lower().replace(" ", "_") + "_genome.zip"
+        blocks.append(
+            f"{chinese_name}（{scientific_name}）\n"
+            f"NCBI Datasets 基因组与在线下载：{datasets_url}\n"
+            f"NCBI Assembly 记录：{assembly_url}\n"
+            "NCBI Datasets 命令行下载："
+            f'datasets download genome taxon "{scientific_name}" '
+            f'--include genome,gff3,rna,cds,protein --filename {filename}'
+        )
+    notice = (
+        "\n\n注意：同一物种可能有多个品种和组装版本。下载前请在 "
+        "NCBI Datasets 页面核对 Assembly accession、品种、组装层级、"
+        "注释情况和发布日期，不要默认第一条记录就是最适合的参考基因组。"
+    )
+    return "\n\n".join(blocks) + notice
+
+
+def match_genome_resources(text):
+    """Match the longest non-overlapping species names in a query."""
+    candidates = []
+    for resource_index, resource in enumerate(GENOME_RESOURCES):
+        for alias in resource[2]:
+            start = text.find(alias)
+            while start >= 0:
+                candidates.append(
+                    (len(alias), start, start + len(alias), resource_index)
+                )
+                start = text.find(alias, start + 1)
+    occupied = []
+    selected = []
+    for _length, start, end, resource_index in sorted(
+        candidates, reverse=True
+    ):
+        if any(start < used_end and end > used_start for used_start, used_end in occupied):
+            continue
+        occupied.append((start, end))
+        if resource_index not in selected:
+            selected.append(resource_index)
+    return [GENOME_RESOURCES[index] for index in sorted(selected)]
 
 
 def normalize_answer(body):
@@ -167,6 +238,37 @@ class handler(BaseHTTPRequestHandler):
                     ),
                 )
                 return
+
+            genome_terms = ("基因组", "genome", "assembly", "组装")
+            if any(term in last_user_text for term in genome_terms):
+                matched_resources = match_genome_resources(last_user_text)
+                if not matched_resources and any(
+                    term in last_user_text
+                    for term in ("13个物种", "13种", "全部", "all species")
+                ):
+                    matched_resources = list(GENOME_RESOURCES)
+                if matched_resources:
+                    self.send_body(
+                        200,
+                        encode_json(
+                            {
+                                "model": "TropicalfruitLLM-genome-resources",
+                                "choices": [
+                                    {
+                                        "index": 0,
+                                        "message": {
+                                            "role": "assistant",
+                                            "content": genome_resource_text(
+                                                matched_resources
+                                            ),
+                                        },
+                                        "finish_reason": "stop",
+                                    }
+                                ],
+                            }
+                        ),
+                    )
+                    return
 
             if last_user_text in greeting_replies:
                 self.send_body(
