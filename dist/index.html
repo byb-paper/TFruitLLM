@@ -3,49 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="TropicalfruitLLM 1.0 integrates AI-assisted question answering, genomes, multi-omics records and evidence resources for thirteen tropical fruit species.">
-  <title>TropicalfruitLLM 1.0 — Tropical Fruit Research Platform</title>
-  <link rel="stylesheet" href="portal.css?v=14">
+  <meta name="description" content="TropicalfruitLLM 1.0 research assistant for tropical fruit biology, genomics and breeding.">
+  <title>TropicalfruitLLM 1.0 — Research Assistant</title>
+  <link rel="stylesheet" href="portal.css?v=15">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#assistant" aria-label="TropicalfruitLLM 1.0 home">
-      <img src="assets/tropifruit-logo-fruit-canopy.png" alt="">
-      <span><strong>TropicalfruitLLM 1.0</strong><small>TROPICAL FRUIT RESEARCH PLATFORM</small></span>
-    </a>
-    <nav aria-label="Primary navigation">
-      <a href="#assistant">Assistant</a><a href="#resources">Resources</a><a href="species.html?species=mango">Species</a><a href="omics.html?species=mango&theme=development">Omics</a>
-    </nav>
-  </header>
-  <main>
-    <section class="assistant-home" id="assistant">
-      <div class="fruit-backdrop" aria-hidden="true"><img src="assets/tropical-fruit-13-hero-v3.png" alt=""></div>
-      <div class="hero-copy">
-        <p class="eyebrow">AI RESEARCH PLATFORM · 13 TROPICAL FRUIT SPECIES</p>
-        <h1>TropicalfruitLLM 1.0</h1>
-        <p class="model-title">Evidence-grounded intelligence for tropical fruit biology, genomics and breeding</p>
+<body class="chat-app">
+  <aside class="chat-sidebar" id="chatSidebar">
+    <a class="sidebar-brand" href="index.html"><img src="assets/tropifruit-logo-fruit-canopy.png" alt=""><span><strong>TropicalfruitLLM</strong><small>RESEARCH ASSISTANT</small></span></a>
+    <button class="new-chat" id="newChat" type="button"><span>＋</span> New chat</button>
+    <div class="history-heading"><span>History</span><small>Saved on this device</small></div>
+    <nav class="history-list" id="historyList" aria-label="Chat history"><p class="empty-history">No conversations yet</p></nav>
+    <div class="sidebar-footer">
+      <a href="#resources" data-view-link="resources"><span>Research resources</span><small>Species · Genomes · Omics</small></a>
+      <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/" target="_blank" rel="noopener noreferrer"><span>NCBI Datasets</span><small>External repository</small></a>
+    </div>
+  </aside>
+
+  <main class="chat-workspace">
+    <header class="chat-topbar"><button id="sidebarToggle" type="button" aria-label="Toggle sidebar">☰</button><div><strong>TropicalfruitLLM 1.0</strong><span>Evidence-grounded tropical fruit research</span></div><nav><a href="#assistant" data-view-link="assistant">Assistant</a><a href="#resources" data-view-link="resources">Resources</a><div class="language-switch" role="group" aria-label="Language"><button type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中文</button></div></nav></header>
+    <section class="conversation-view app-view" id="assistantView">
+      <div class="messages" id="messages">
+        <div class="welcome-card">
+          <div><p class="eyebrow">13 TROPICAL FRUIT SPECIES</p><h1>What would you like to explore?</h1><p>Ask about genes, diseases, traits, metabolites, genomes or multi-omics evidence.</p></div>
+          <div class="prompt-list" aria-label="Example questions"><button type="button">芒果炭疽病相关基因有哪些？</button><button type="button">龙眼基因组下载地址</button><button type="button">荔枝果皮褐变涉及哪些通路？</button></div>
+        </div>
       </div>
-      <div class="chat-panel">
-        <div class="messages" id="messages"><div class="message model">Ask about a species, gene, disease, trait, metabolite or omics dataset.</div></div>
-        <form id="chatForm"><label class="sr-only" for="question">Research question</label><div class="composer"><input id="question" autocomplete="off" placeholder="Ask a tropical fruit research question…"><button aria-label="Send question">Ask</button></div></form>
-        <div class="prompt-list" aria-label="Example questions"><button type="button">芒果炭疽病相关基因有哪些？</button><button type="button">龙眼基因组下载地址</button><button type="button">荔枝果皮褐变涉及哪些通路？</button></div>
+      <div class="composer-wrap">
+        <form id="chatForm"><label class="sr-only" for="question">Research question</label><div class="composer"><textarea id="question" rows="1" autocomplete="off" placeholder="Ask TropicalfruitLLM…"></textarea><button aria-label="Send question">Send</button></div></form>
+        <p>TropicalfruitLLM may make mistakes. Verify critical claims with the linked evidence resources.</p>
       </div>
     </section>
-    <section class="research-workspace" id="resources">
-      <header class="workspace-heading"><div><p class="eyebrow">RESEARCH RESOURCES</p><h2>Explore data and evidence</h2></div><p>Move from a biological question to species profiles, genome assemblies, multi-omics records and literature databases.</p></header>
-      <div class="species-launcher">
-        <div><span class="resource-index">01</span><div><h3>Species intelligence</h3><p>Choose one of the 13 supported species and open its integrated evidence profile.</p></div></div>
-        <form id="speciesLauncher"><label class="sr-only" for="speciesSelect">Choose a species</label><select id="speciesSelect"><option value="pineapple">Pineapple · Ananas comosus</option><option value="passionfruit">Passion fruit · Passiflora edulis</option><option value="avocado">Avocado · Persea americana</option><option value="sugarapple">Sugar apple · Annona squamosa</option><option value="guava">Guava · Psidium guajava</option><option value="rambutan">Rambutan · Nephelium lappaceum</option><option value="wampee">Wampee · Clausena lansium</option><option value="dragonfruit">Dragon fruit · Selenicereus undatus</option><option value="litchi">Litchi · Litchi chinensis</option><option value="durian">Durian · Durio zibethinus</option><option value="longan">Longan · Dimocarpus longan</option><option value="mango" selected>Mango · Mangifera indica</option><option value="cashew">Cashew · Anacardium occidentale</option></select><button type="submit">Open profile</button></form>
-      </div>
-      <div class="resource-grid">
-        <article class="resource-card featured"><span class="resource-index">02</span><small>CURATED PLATFORM DATA</small><h3>Genome assemblies</h3><p>Browse accessions, cultivars, assembly levels and direct NCBI records collected for the supported species.</p><div class="resource-links"><a href="omics.html?species=mango&theme=development">Open genome records</a><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/" target="_blank" rel="noopener noreferrer">NCBI Datasets</a></div></article>
-        <article class="resource-card"><span class="resource-index">03</span><small>TRANSCRIPTOMICS & MULTI-OMICS</small><h3>Omics evidence</h3><p>Explore RNA-seq, single-cell, epigenomic and developmental or stress-response datasets by species.</p><div class="resource-links"><a href="omics.html?species=mango&theme=development">Growth & development</a><a href="omics.html?species=mango&theme=stress">Stress response</a></div></article>
-        <article class="resource-card"><span class="resource-index">04</span><small>SEQUENCE ARCHIVES</small><h3>Public data search</h3><p>Continue a query in official sequence repositories when raw reads or project-level records are required.</p><div class="resource-links"><a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener noreferrer">NCBI SRA</a><a href="https://www.ncbi.nlm.nih.gov/bioproject/" target="_blank" rel="noopener noreferrer">BioProject</a><a href="https://www.ebi.ac.uk/ena/browser/home" target="_blank" rel="noopener noreferrer">ENA</a></div></article>
-        <article class="resource-card"><span class="resource-index">05</span><small>SCIENTIFIC EVIDENCE</small><h3>Literature discovery</h3><p>Verify genes, phenotypes and experimental claims in literature databases before drawing research conclusions.</p><div class="resource-links"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=tropical+fruit+genomics" target="_blank" rel="noopener noreferrer">PubMed</a><a href="https://scholar.google.com/scholar?q=tropical+fruit+genomics" target="_blank" rel="noopener noreferrer">Google Scholar</a><a href="https://europepmc.org/search?query=tropical%20fruit%20genomics" target="_blank" rel="noopener noreferrer">Europe PMC</a></div></article>
+    <section class="resources-view app-view" id="resourcesView" hidden>
+      <div class="resources-scroll">
+        <header class="workspace-heading"><div><p class="eyebrow">RESEARCH RESOURCES</p><h1>Explore data and evidence</h1></div><p>Move from a biological question to species profiles, genome assemblies, multi-omics records and literature databases.</p></header>
+        <section class="species-launcher" id="species-selector">
+          <div><p class="eyebrow">SPECIES INTELLIGENCE</p><h2>Choose one of 13 species</h2><p>Open an integrated species profile, then continue to genome and omics records.</p></div>
+          <form id="speciesLauncher"><label class="sr-only" for="speciesSelect">Choose a species</label><select id="speciesSelect" required><option value="" selected disabled>Choose one of 13 species</option><option value="pineapple">Pineapple · Ananas comosus</option><option value="passionfruit">Passion fruit · Passiflora edulis</option><option value="avocado">Avocado · Persea americana</option><option value="sugarapple">Sugar apple · Annona squamosa</option><option value="guava">Guava · Psidium guajava</option><option value="rambutan">Rambutan · Nephelium lappaceum</option><option value="wampee">Wampee · Clausena lansium</option><option value="dragonfruit">Dragon fruit · Selenicereus undatus</option><option value="litchi">Litchi · Litchi chinensis</option><option value="durian">Durian · Durio zibethinus</option><option value="longan">Longan · Dimocarpus longan</option><option value="mango">Mango · Mangifera indica</option><option value="cashew">Cashew · Anacardium occidentale</option></select><button type="submit">Open profile</button></form>
+        </section>
+        <section class="resource-grid">
+          <article class="resource-card featured"><small>CURATED PLATFORM DATA</small><h2>Genome assemblies</h2><p>Browse accessions, cultivars, assembly levels and direct NCBI records collected for the supported species.</p><div class="resource-links"><a id="genomeRecordsLink" href="#resources">Choose a species first</a><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/" target="_blank" rel="noopener noreferrer">NCBI Datasets</a></div></article>
+          <article class="resource-card"><small>TRANSCRIPTOMICS & MULTI-OMICS</small><h2>Omics evidence</h2><p>Explore RNA-seq, single-cell, epigenomic and developmental or stress-response datasets by species.</p><div class="resource-links"><a id="developmentLink" href="#resources">Choose species for development</a><a id="stressLink" href="#resources">Choose species for stress</a></div></article>
+          <article class="resource-card"><small>SEQUENCE ARCHIVES</small><h2>Public data search</h2><p>Continue a query in official sequence repositories when raw reads or project records are required.</p><div class="resource-links"><a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener noreferrer">NCBI SRA</a><a href="https://www.ncbi.nlm.nih.gov/bioproject/" target="_blank" rel="noopener noreferrer">BioProject</a><a href="https://www.ebi.ac.uk/ena/browser/home" target="_blank" rel="noopener noreferrer">ENA</a></div></article>
+          <article class="resource-card"><small>SCIENTIFIC EVIDENCE</small><h2>Literature discovery</h2><p>Verify genes, phenotypes and experimental claims in literature databases before drawing conclusions.</p><div class="resource-links"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=tropical+fruit+genomics" target="_blank" rel="noopener noreferrer">PubMed</a><a href="https://scholar.google.com/scholar?q=tropical+fruit+genomics" target="_blank" rel="noopener noreferrer">Google Scholar</a><a href="https://europepmc.org/search?query=tropical%20fruit%20genomics" target="_blank" rel="noopener noreferrer">Europe PMC</a></div></article>
+        </section>
       </div>
     </section>
   </main>
-  <footer><a class="brand" href="#assistant"><img src="assets/tropifruit-logo-fruit-canopy.png" alt=""><span><strong>TropicalfruitLLM 1.0</strong><small>FOR RESEARCH USE</small></span></a><p>Genomic and literature links lead to their original public repositories.</p></footer>
-  <script src="portal.js?v=12"></script>
+  <script src="portal.js?v=17"></script>
 </body>
 </html>

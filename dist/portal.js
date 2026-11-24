@@ -1,96 +1,41 @@
-const messages=document.querySelector('#messages'),form=document.querySelector('#chatForm'),input=document.querySelector('#question');
-const submitButton=form.querySelector('button');
-const conversation=[];
-function normalizeAnswer(text=''){
-  const chineseNumbers={'一':'1','二':'2','三':'3','四':'4','五':'5','六':'6','七':'7','八':'8','九':'9','十':'10'};
-  return String(text)
-    .replace(/\bStep\s*(\d+)\s*(?:[—–\-:：]\s*)?/gi,(_,number)=>`\n\n${number}. `)
-    .replace(/步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?/g,(_,number)=>`\n\n${chineseNumbers[number]||number}. `)
-    .replace(/\n{3,}/g,'\n\n')
-    .trim();
+const messages=document.querySelector('#messages'),form=document.querySelector('#chatForm'),input=document.querySelector('#question'),submitButton=form.querySelector('button'),historyList=document.querySelector('#historyList');
+const storageKey='tfruitllm-chat-history-v1';let conversations=readHistory(),activeId=null,conversation=[],currentLanguage=localStorage.getItem('tfruitllm-language')==='zh'?'zh':'en';
+function readHistory(){try{return JSON.parse(localStorage.getItem(storageKey)||'[]')}catch{return[]}}
+function saveHistory(){localStorage.setItem(storageKey,JSON.stringify(conversations.slice(0,30)))}
+function normalizeAnswer(text=''){const nums={'一':'1','二':'2','三':'3','四':'4','五':'5','六':'6','七':'7','八':'8','九':'9','十':'10'};return String(text).replace(/\bStep\s*(\d+)\s*(?:[—–\-:：]\s*)?/gi,(_,n)=>`\n\n${n}. `).replace(/步骤\s*([一二三四五六七八九十\d]+)\s*(?:[—–\-:：]\s*)?/g,(_,n)=>`\n\n${nums[n]||n}. `).replace(/\n{3,}/g,'\n\n').trim()}
+function renderMessageContent(element,text=''){element.replaceChildren();const pattern=/(https?:\/\/[^\s]+)/g;for(const part of String(text).split(pattern)){if(!part)continue;if(/^https?:\/\//.test(part)){const link=document.createElement('a');link.href=part;link.target='_blank';link.rel='noopener noreferrer';link.textContent=part;element.appendChild(link)}else element.appendChild(document.createTextNode(part))}}
+function addMessage(role,text,state=''){const element=document.createElement('div');element.className=`message ${role}${state?` ${state}`:''}`;renderMessageContent(element,text);messages.appendChild(element);messages.scrollTop=messages.scrollHeight;return element}
+function welcomeMarkup(){const zh=currentLanguage==='zh';return `<div class="welcome-card"><div><p class="eyebrow">${zh?'13 种热带果树':'13 TROPICAL FRUIT SPECIES'}</p><h1>${zh?'您想探索什么？':'What would you like to explore?'}</h1><p>${zh?'可询问基因、病害、性状、代谢物、基因组或多组学证据。':'Ask about genes, diseases, traits, metabolites, genomes or multi-omics evidence.'}</p></div><div class="prompt-list" aria-label="Example questions"><button type="button">芒果炭疽病相关基因有哪些？</button><button type="button">龙眼基因组下载地址</button><button type="button">荔枝果皮褐变涉及哪些通路？</button></div></div>`}
+function renderHistory(){historyList.innerHTML=conversations.length?'':`<p class="empty-history">${currentLanguage==='zh'?'暂无历史对话':'No conversations yet'}</p>`;for(const chat of conversations){const button=document.createElement('button');button.type='button';button.className=chat.id===activeId?'active':'';button.dataset.id=chat.id;button.innerHTML=`<span>${escapeHtml(chat.title)}</span><small>${new Date(chat.updated).toLocaleDateString()}</small>`;historyList.appendChild(button)}}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function newChat(){showView('assistant');activeId=null;conversation=[];messages.innerHTML=welcomeMarkup();renderHistory();input.value='';input.focus()}
+function openChat(id){const chat=conversations.find(item=>item.id===id);if(!chat)return;activeId=id;conversation=chat.messages.map(item=>({...item}));messages.innerHTML='';for(const item of conversation)addMessage(item.role==='user'?'user':'model',item.content);renderHistory()}
+function persistChat(question){let chat=conversations.find(item=>item.id===activeId);if(!chat){activeId=crypto.randomUUID?.()||String(Date.now());chat={id:activeId,title:question.slice(0,34),updated:Date.now(),messages:[]};conversations.unshift(chat)}chat.messages=conversation.map(item=>({...item}));chat.updated=Date.now();conversations=conversations.filter(item=>item.id!==chat.id);conversations.unshift(chat);saveHistory();renderHistory()}
+function extractErrorMessage(result,status){for(const candidate of [result?.detail,result?.error?.message,result?.error?.detail,result?.error,result?.message]){if(typeof candidate==='string'&&candidate.trim())return candidate.trim()}return `Request failed (${status})`}
+async function ask(text){const question=text.trim();if(!question||submitButton.disabled)return;addMessage('user',question);conversation.push({role:'user',content:question});persistChat(question);const pending=addMessage('model','Examining the available evidence…','pending');input.value='';input.disabled=true;submitButton.disabled=true;try{const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation,max_tokens:1024,temperature:.2})});const type=response.headers.get('content-type')||'';if(!type.includes('application/json'))throw new Error(`The research service returned an invalid response (HTTP ${response.status})`);const result=await response.json();if(!response.ok)throw new Error(extractErrorMessage(result,response.status));const raw=result.choices?.[0]?.message?.content?.trim();const answer=normalizeAnswer(raw?.includes('</think>')?raw.split('</think>').pop().trim():raw);if(!answer)throw new Error('The model returned an empty response.');pending.classList.remove('pending');renderMessageContent(pending,answer);conversation.push({role:'assistant',content:answer});persistChat(question)}catch(error){pending.classList.remove('pending');pending.classList.add('error');pending.textContent=`The research service is temporarily unavailable. ${error.message}`}finally{input.disabled=false;submitButton.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight}}
+form.addEventListener('submit',event=>{event.preventDefault();ask(input.value)});input.addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();form.requestSubmit()}});input.addEventListener('input',()=>{input.style.height='auto';input.style.height=`${Math.min(input.scrollHeight,160)}px`});messages.addEventListener('click',event=>{if(event.target.matches('.prompt-list button'))ask(event.target.textContent)});historyList.addEventListener('click',event=>{const button=event.target.closest('button[data-id]');if(button)openChat(button.dataset.id)});
+function showView(view){const resources=view==='resources';document.querySelector('#assistantView').hidden=resources;document.querySelector('#resourcesView').hidden=!resources;document.body.classList.toggle('resources-mode',resources);document.body.classList.remove('sidebar-open');if(location.hash!==`#${view}`)history.replaceState(null,'',`#${view}`)}
+const i18n={
+  en:{subtitle:'Evidence-grounded tropical fruit research',assistant:'Assistant',resources:'Resources',newChat:'New chat',history:'History',saved:'Saved on this device',resourceTitle:'Research resources',resourceSub:'Species · Genomes · Omics',external:'External repository',question:'Ask TropicalfruitLLM…',send:'Send',notice:'TropicalfruitLLM may make mistakes. Verify critical claims with the linked evidence resources.',resourceEyebrow:'RESEARCH RESOURCES',explore:'Explore data and evidence',exploreText:'Move from a biological question to species profiles, genome assemblies, multi-omics records and literature databases.',speciesEyebrow:'SPECIES INTELLIGENCE',speciesTitle:'Choose one of 13 species',speciesText:'Open an integrated species profile, then continue to genome and omics records.',chooseLabel:'Choose a species',choose:'Choose one of 13 species',open:'Open profile',genomeLabel:'CURATED PLATFORM DATA',genome:'Genome assemblies',genomeText:'Browse accessions, cultivars, assembly levels and direct NCBI records collected for the supported species.',omicsLabel:'TRANSCRIPTOMICS & MULTI-OMICS',omics:'Omics evidence',omicsText:'Explore RNA-seq, single-cell, epigenomic and developmental or stress-response datasets by species.',archiveLabel:'SEQUENCE ARCHIVES',archive:'Public data search',archiveText:'Continue a query in official sequence repositories when raw reads or project records are required.',literatureLabel:'SCIENTIFIC EVIDENCE',literature:'Literature discovery',literatureText:'Verify genes, phenotypes and experimental claims in literature databases before drawing conclusions.',chooseSpeciesFirst:'Choose a species first',chooseDevelopment:'Choose species for development',chooseStress:'Choose species for stress',openGenome:'Open genome records',development:'Growth & development',stress:'Stress response'},
+  zh:{subtitle:'基于证据的热带果树科研助手',assistant:'问答助手',resources:'研究资源',newChat:'新聊天',history:'历史聊天',saved:'保存在当前设备',resourceTitle:'研究资源',resourceSub:'物种 · 基因组 · 多组学',external:'外部数据库',question:'向 TropicalfruitLLM 提问…',send:'发送',notice:'TropicalfruitLLM 可能出现错误，重要结论请结合相关证据资源核验。',resourceEyebrow:'研究资源',explore:'探索数据与证据',exploreText:'从生物学问题出发，查看物种档案、基因组组装、多组学记录和文献数据库。',speciesEyebrow:'物种知识',speciesTitle:'选择13个物种之一',speciesText:'打开整合物种档案，并继续查看基因组与多组学记录。',chooseLabel:'选择物种',choose:'请选择13个物种之一',open:'打开物种档案',genomeLabel:'平台整理数据',genome:'基因组组装',genomeText:'浏览已收录物种的登录号、品种、组装水平及对应 NCBI 原始记录。',omicsLabel:'转录组与多组学',omics:'多组学证据',omicsText:'按物种查看 RNA-seq、单细胞、表观基因组以及发育或胁迫响应数据。',archiveLabel:'序列数据库',archive:'公共数据检索',archiveText:'需要原始测序数据或项目记录时，可继续进入权威序列数据库检索。',literatureLabel:'科学证据',literature:'文献检索',literatureText:'在形成研究结论前，通过文献数据库核验基因、表型与实验性证据。',chooseSpeciesFirst:'请先选择物种',chooseDevelopment:'选择物种查看发育数据',chooseStress:'选择物种查看胁迫数据',openGenome:'打开基因组记录',development:'生长与发育',stress:'胁迫响应'}
+};
+function applyLanguage(language){
+  currentLanguage=i18n[language]?language:'en';const t=i18n[currentLanguage];
+  localStorage.setItem('tfruitllm-language',currentLanguage);document.documentElement.lang=currentLanguage==='zh'?'zh-CN':'en';
+  const text=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value};
+  text('.chat-topbar>div span',t.subtitle);text('[data-view-link="assistant"]',t.assistant);
+  document.querySelectorAll('[data-view-link="resources"]').forEach((el,index)=>{if(index===0){const span=el.querySelector('span'),small=el.querySelector('small');if(span)span.textContent=t.resourceTitle;if(small)small.textContent=t.resourceSub}else el.textContent=t.resources});
+  document.querySelector('.new-chat').innerHTML=`<span>＋</span> ${t.newChat}`;text('.history-heading span',t.history);text('.history-heading small',t.saved);text('.sidebar-footer a[target] small',t.external);
+  input.placeholder=t.question;submitButton.textContent=t.send;text('.composer-wrap>p',t.notice);text('#resourcesView .workspace-heading .eyebrow',t.resourceEyebrow);text('#resourcesView .workspace-heading h1',t.explore);text('#resourcesView .workspace-heading>p',t.exploreText);
+  text('.species-launcher .eyebrow',t.speciesEyebrow);text('.species-launcher h2',t.speciesTitle);text('.species-launcher div>p:not(.eyebrow)',t.speciesText);text('#speciesLauncher label',t.chooseLabel);text('#speciesLauncher button',t.open);
+  const speciesNames={pineapple:['Pineapple','菠萝'],passionfruit:['Passion fruit','百香果'],avocado:['Avocado','鳄梨'],sugarapple:['Sugar apple','番荔枝'],guava:['Guava','番石榴'],rambutan:['Rambutan','红毛丹'],wampee:['Wampee','黄皮'],dragonfruit:['Dragon fruit','火龙果'],litchi:['Litchi','荔枝'],durian:['Durian','榴莲'],longan:['Longan','龙眼'],mango:['Mango','芒果'],cashew:['Cashew','腰果']};
+  speciesSelect?.querySelectorAll('option').forEach(option=>{if(!option.value){option.textContent=t.choose;return}const names=speciesNames[option.value];const scientific=option.textContent.split('·').pop().trim();if(names)option.textContent=`${names[currentLanguage==='zh'?1:0]} · ${scientific}`});
+  const cards=document.querySelectorAll('.resource-card');
+  [[t.genomeLabel,t.genome,t.genomeText],[t.omicsLabel,t.omics,t.omicsText],[t.archiveLabel,t.archive,t.archiveText],[t.literatureLabel,t.literature,t.literatureText]].forEach((values,index)=>{const card=cards[index];if(!card)return;const small=card.querySelector('small');if(small)small.textContent=values[0];card.querySelector('h2').textContent=values[1];card.querySelector('p').textContent=values[2]});
+  const selected=Boolean(speciesSelect?.value);text('#genomeRecordsLink',selected?t.openGenome:t.chooseSpeciesFirst);text('#developmentLink',selected?t.development:t.chooseDevelopment);text('#stressLink',selected?t.stress:t.chooseStress);
+  document.querySelectorAll('[data-lang]').forEach(button=>button.classList.toggle('active',button.dataset.lang===currentLanguage));if(!conversation.length)messages.innerHTML=welcomeMarkup();renderHistory();
 }
-function renderMessageContent(element,text=''){
-  element.replaceChildren();
-  const urlPattern=/(https?:\/\/[^\s]+)/g;
-  for(const part of String(text).split(urlPattern)){
-    if(!part)continue;
-    if(/^https?:\/\//.test(part)){
-      const link=document.createElement('a');
-      link.href=part;
-      link.target='_blank';
-      link.rel='noopener noreferrer';
-      link.textContent=part;
-      element.appendChild(link);
-    }else{
-      element.appendChild(document.createTextNode(part));
-    }
-  }
-}
-function addMessage(role,text,state=''){
-  const element=document.createElement('div');
-  element.className=`message ${role}${state?` ${state}`:''}`;
-  renderMessageContent(element,text);
-  messages.appendChild(element);
-  messages.scrollTop=messages.scrollHeight;
-  return element;
-}
-function extractErrorMessage(result,status){
-  const candidates=[
-    result?.detail,
-    result?.error?.message,
-    result?.error?.detail,
-    result?.error,
-    result?.message,
-  ];
-  for(const candidate of candidates){
-    if(typeof candidate==='string'&&candidate.trim())return candidate.trim();
-    if(candidate&&typeof candidate==='object'){
-      try{
-        const serialized=JSON.stringify(candidate);
-        if(serialized&&serialized!=='{}')return serialized;
-      }catch{}
-    }
-  }
-  return `Request failed (${status})`;
-}
-async function ask(text){
-  const question=text.trim();if(!question||submitButton.disabled)return;
-  addMessage('user',question);conversation.push({role:'user',content:question});
-  const pending=addMessage('model','TropicalfruitLLM 1.0 is examining the evidence…','pending');
-  input.value='';input.disabled=true;submitButton.disabled=true;
-  try{
-    const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversation,max_tokens:1024,temperature:.4})});
-    const contentType=response.headers.get('content-type')||'';
-    if(!contentType.includes('application/json')){
-      const body=await response.text();
-      const hint=response.status===504
-        ? 'TropicalfruitLLM 1.0 took longer than the Cloud Function time limit to answer.'
-        : body.trim().startsWith('<')
-          ? 'The EdgeOne /api/chat service returned an HTML error page.'
-          : body.slice(0,180);
-      throw new Error(`${hint} (HTTP ${response.status})`);
-    }
-    const result=await response.json();
-    if(!response.ok)throw new Error(extractErrorMessage(result,response.status));
-    const rawAnswer=result.choices?.[0]?.message?.content?.trim();
-    const answer=normalizeAnswer(rawAnswer?.includes('</think>')
-      ? rawAnswer.split('</think>').pop().trim()
-      : rawAnswer);
-    if(!answer)throw new Error('The model returned an empty response.');
-    pending.classList.remove('pending');renderMessageContent(pending,answer);
-    conversation.push({role:'assistant',content:answer});
-  }catch(error){
-    pending.classList.remove('pending');pending.classList.add('error');
-    pending.textContent=`The research service is temporarily unavailable. ${error.message}`;
-    conversation.pop();
-  }finally{
-    input.disabled=false;submitButton.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight;
-  }
-}
-form.addEventListener('submit',event=>{event.preventDefault();ask(input.value)});
-document.querySelector('.prompt-list')?.addEventListener('click',event=>{if(event.target.matches('button'))ask(event.target.textContent)});
-document.querySelector('#speciesLauncher')?.addEventListener('submit',event=>{
-  event.preventDefault();
-  const species=document.querySelector('#speciesSelect')?.value||'mango';
-  location.href=`species.html?species=${encodeURIComponent(species)}`;
-});
+document.querySelectorAll('[data-view-link]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();showView(link.dataset.viewLink)}));
+const speciesSelect=document.querySelector('#speciesSelect');speciesSelect?.addEventListener('change',event=>{const species=event.target.value;if(!species){applyLanguage(currentLanguage);return}const encoded=encodeURIComponent(species),genome=document.querySelector('#genomeRecordsLink'),development=document.querySelector('#developmentLink'),stress=document.querySelector('#stressLink');genome.href=`omics.html?species=${encoded}&theme=development`;development.href=`omics.html?species=${encoded}&theme=development`;stress.href=`omics.html?species=${encoded}&theme=stress`;applyLanguage(currentLanguage)});
+document.querySelector('#speciesLauncher')?.addEventListener('submit',event=>{event.preventDefault();const species=speciesSelect?.value;if(species)location.href=`species.html?species=${encodeURIComponent(species)}`});
+document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>applyLanguage(button.dataset.lang)));document.querySelector('#newChat').addEventListener('click',newChat);document.querySelector('#sidebarToggle').addEventListener('click',()=>document.body.classList.toggle('sidebar-open'));showView(location.hash==='#resources'?'resources':'assistant');applyLanguage(currentLanguage);
