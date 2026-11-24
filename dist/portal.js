@@ -89,3 +89,8 @@ async function ask(text){
 }
 form.addEventListener('submit',event=>{event.preventDefault();ask(input.value)});
 document.querySelector('.prompt-list')?.addEventListener('click',event=>{if(event.target.matches('button'))ask(event.target.textContent)});
+document.querySelector('#speciesLauncher')?.addEventListener('submit',event=>{
+  event.preventDefault();
+  const species=document.querySelector('#speciesSelect')?.value||'mango';
+  location.href=`species.html?species=${encodeURIComponent(species)}`;
+});
