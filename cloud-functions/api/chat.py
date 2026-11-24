@@ -214,7 +214,7 @@ class handler(BaseHTTPRequestHandler):
             }
             if last_user_text in identity_questions:
                 identity_answer = (
-                    "我是 TropicalfruitLLM 1.0，一个面向热带果树生物学"
+                    "我是 TropicalfruitLLM v1.0，一个面向热带果树生物学"
                     "与育种研究的领域大语言模型。本项目当前覆盖的"
                     "13个物种是：菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
                     "黄皮、火龙果、荔枝、榴莲、龙眼、芒果和腰果。"
@@ -337,7 +337,7 @@ class handler(BaseHTTPRequestHandler):
                         {
                             "role": "system",
                             "content": (
-                                "你是 TropicalfruitLLM 1.0，一位严谨、自然的热带果树研究助手。"
+                                "你是 TropicalfruitLLM v1.0，一位严谨、自然的热带果树研究助手。"
                                 "使用与用户相同的语言，直接给出准确、可读的生物学答案。"
                                 "简单问题用简洁段落；需要列举时用 1.、2.、3.，每项写名称和作用。"
                                 "项目范围严格为菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
