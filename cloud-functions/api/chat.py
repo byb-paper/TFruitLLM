@@ -30,6 +30,24 @@ GENOME_RESOURCES = (
 
 
 def genome_resource_text(resources):
+    species_keys = {
+        scientific_name: key
+        for key, scientific_name in (
+            ("pineapple", "Ananas comosus"),
+            ("passionfruit", "Passiflora edulis"),
+            ("avocado", "Persea americana"),
+            ("sugarapple", "Annona squamosa"),
+            ("guava", "Psidium guajava"),
+            ("rambutan", "Nephelium lappaceum"),
+            ("wampee", "Clausena lansium"),
+            ("dragonfruit", "Selenicereus undatus"),
+            ("litchi", "Litchi chinensis"),
+            ("durian", "Durio zibethinus"),
+            ("longan", "Dimocarpus longan"),
+            ("mango", "Mangifera indica"),
+            ("cashew", "Anacardium occidentale"),
+        )
+    }
     blocks = []
     for chinese_name, scientific_name, _aliases in resources:
         encoded_name = urllib.parse.quote(scientific_name)
@@ -42,8 +60,13 @@ def genome_resource_text(resources):
             "https://www.ncbi.nlm.nih.gov/assembly/?term=" + assembly_query
         )
         filename = scientific_name.lower().replace(" ", "_") + "_genome.zip"
+        catalog_url = (
+            "https://www.tfruitllm.com/genomes.html?species="
+            + species_keys[scientific_name]
+        )
         blocks.append(
             f"{chinese_name}（{scientific_name}）\n"
+            f"TropicalfruitLLM 全部基因组版本目录：{catalog_url}\n"
             f"NCBI Datasets 基因组与在线下载：{datasets_url}\n"
             f"NCBI Assembly 记录：{assembly_url}\n"
             "NCBI Datasets 命令行下载："
@@ -51,7 +74,9 @@ def genome_resource_text(resources):
             f'--include genome,gff3,rna,cds,protein --filename {filename}'
         )
     notice = (
-        "\n\n注意：同一物种可能有多个品种和组装版本。下载前请在 "
+        "\n\n模型版本说明：TropicalfruitLLM v1.0 基于文献、问答与多组学证据微调，"
+        "模型权重未绑定某一个统一的基因组 FASTA 版本，因此不存在单一的“模型使用基因组”。"
+        "同一物种可能有多个品种和组装版本。下载前请在 "
         "NCBI Datasets 页面核对 Assembly accession、品种、组装层级、"
         "注释情况和发布日期，不要默认第一条记录就是最适合的参考基因组。"
     )
@@ -342,6 +367,8 @@ class handler(BaseHTTPRequestHandler):
                                 "简单问题用简洁段落；需要列举时用 1.、2.、3.，每项写名称和作用。"
                                 "项目范围严格为菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
                                 "黄皮、火龙果、荔枝、榴莲、龙眼、芒果和腰果。"
+                                "若被问到模型使用哪版基因组，必须明确回答：模型权重未绑定单一"
+                                "基因组组装版本；涉及具体分析时应引用实际采用的 Assembly accession。"
                                 "只陈述有把握的内容；没有可靠来源时不生成具体文献或数据库编号。"
                             ),
                         },
