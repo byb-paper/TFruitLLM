@@ -1,0 +1,331 @@
+{
+  "updated": "2026-11-25",
+  "source": "NGDC Genome Warehouse public search API",
+  "species": [
+    {
+      "key": "pineapple",
+      "scientificName": "Ananas comosus",
+      "records": [
+        {
+          "accession": "GWHGEOA00000000.1",
+          "assemblyName": "F180.hap1",
+          "scientificName": "Ananas comosus",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Smooth Cayenne F180",
+          "releaseDate": "2026-06-27",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/98237/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Ananas_comosus_F180.hap1_GWHGEOA00000000.1/GWHGEOA00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHGEOB00000000.1",
+          "assemblyName": "F180.hap2",
+          "scientificName": "Ananas comosus",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Smooth Cayenne F180",
+          "releaseDate": "2026-07-05",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/98238/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Ananas_comosus_F180.hap2_GWHGEOB00000000.1/GWHGEOB00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "passionfruit",
+      "scientificName": "Passiflora edulis",
+      "records": [
+        {
+          "accession": "GWHANWG00000000",
+          "assemblyName": "ZX",
+          "scientificName": "Passiflora edulis",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "purple passion fruit",
+          "releaseDate": "2020-09-30",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/9800/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Passiflora_edulis_ZX_GWHANWG00000000/GWHANWG00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHAZTM00000000",
+          "assemblyName": "BXG",
+          "scientificName": "Passiflora edulis",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "TN",
+          "releaseDate": "2021-01-27",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/17982/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Passiflora_edulis_BXG_GWHAZTM00000000/GWHAZTM00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHBOZP00000000",
+          "assemblyName": "PPF",
+          "scientificName": "Passiflora edulis",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "sgf2",
+          "releaseDate": "2022-11-06",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/29472/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Passiflora_edulis_PPF_GWHBOZP00000000/GWHBOZP00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHBOZQ00000000",
+          "assemblyName": "YPF",
+          "scientificName": "Passiflora edulis",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "sgf1",
+          "releaseDate": "2022-11-07",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/29473/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Passiflora_edulis_YPF_GWHBOZQ00000000/GWHBOZQ00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "avocado",
+      "scientificName": "Persea americana",
+      "records": [
+        {
+          "accession": "GWHKEWF00000000.1",
+          "assemblyName": "Anise_HiFi_assembly_v1",
+          "scientificName": "Persea americana",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Anise",
+          "releaseDate": "2026-10-20",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/139262/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Persea_americana_Anise_HiFi_assembly_v1_GWHKEWF00000000.1/GWHKEWF00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "sugarapple",
+      "scientificName": "Annona squamosa",
+      "records": []
+    },
+    {
+      "key": "guava",
+      "scientificName": "Psidium guajava",
+      "records": []
+    },
+    {
+      "key": "rambutan",
+      "scientificName": "Nephelium lappaceum",
+      "records": [
+        {
+          "accession": "GWHBECQ00000000",
+          "assemblyName": "Nephelium lappaceum",
+          "scientificName": "Nephelium lappaceum",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Baoyan 7",
+          "releaseDate": "2021-12-07",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/21843/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Nephelium_lappaceum_Nephelium_lappaceum_GWHBECQ00000000/GWHBECQ00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "wampee",
+      "scientificName": "Clausena lansium",
+      "records": [
+        {
+          "accession": "GWHDODB00000000",
+          "assemblyName": "HP",
+          "scientificName": "Clausena lansium",
+          "level": "Draft genome in contig level",
+          "cultivar": "1H",
+          "releaseDate": "2023-07-02",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/64047/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Clausena_lansium_HP_GWHDODB00000000/GWHDODB00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "dragonfruit",
+      "scientificName": "Selenicereus undatus",
+      "records": []
+    },
+    {
+      "key": "litchi",
+      "scientificName": "Litchi chinensis",
+      "records": []
+    },
+    {
+      "key": "durian",
+      "scientificName": "Durio zibethinus",
+      "records": [
+        {
+          "accession": "GWHESET00000000",
+          "assemblyName": "Durian",
+          "scientificName": "Durio zibethinus",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Kan Yao",
+          "releaseDate": "2024-10-01",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/84489/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Durio_zibethinus_Durian_GWHESET00000000/GWHESET00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHFGLQ00000000.1",
+          "assemblyName": "Durian_Kanyao_hap1",
+          "scientificName": "Durio zibethinus",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "KanYao",
+          "releaseDate": "2024-10-23",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/86179/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Durio_zibethinus_Durian_Kanyao_hap1_GWHFGLQ00000000.1/GWHFGLQ00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHFGNN00000000.1",
+          "assemblyName": "Durian_Kanyao_hap2",
+          "scientificName": "Durio zibethinus",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "KanYao",
+          "releaseDate": "2024-10-24",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/86204/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Durio_zibethinus_Durian_Kanyao_hap2_GWHFGNN00000000.1/GWHFGNN00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "longan",
+      "scientificName": "Dimocarpus longan",
+      "records": [
+        {
+          "accession": "GWHBDNI00000000",
+          "assemblyName": "Dimocarpus_longan_asm_chr",
+          "scientificName": "Dimocarpus longan",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "JDB",
+          "releaseDate": "2022-05-23",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/21447/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Dimocarpus_longan_Dimocarpus_longan_asm_chr_GWHBDNI00000000/GWHBDNI00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "mango",
+      "scientificName": "Mangifera indica",
+      "records": [
+        {
+          "accession": "GWHABLA00000000",
+          "assemblyName": "mangoV1",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Hongxiangya",
+          "releaseDate": "2020-02-27",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/967/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_mangoV1_GWHABLA00000000/GWHABLA00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHEQCT00000000",
+          "assemblyName": "Mangifera indica cv. Irwin",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Irwin",
+          "releaseDate": "2024-04-03",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/82982/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Mangifera_indica_cv._Irwin_GWHEQCT00000000/GWHEQCT00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHESFJ00000000",
+          "assemblyName": "Mangifera indica cv. Irwin haplotype 1",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Irwin",
+          "releaseDate": "2024-04-18",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/84504/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Mangifera_indica_cv._Irwin_haplotype_1_GWHESFJ00000000/GWHESFJ00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHESFK00000000",
+          "assemblyName": "Mangifera indica cv. Irwin haplotype 2",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Irwin",
+          "releaseDate": "2024-04-19",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/84505/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Mangifera_indica_cv._Irwin_haplotype_2_GWHESFK00000000/GWHESFK00000000.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHFDNU00000000.1",
+          "assemblyName": "Kensington_Pride_Collapsed_genome.Haploid",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Kensington Pride",
+          "releaseDate": "2026-11-05",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/86084/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Kensington_Pride_Collapsed_genome.Haploid_GWHFDNU00000000.1/GWHFDNU00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHFDNV00000000.1",
+          "assemblyName": "Kensington_Pride.hap1",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Kensington Pride",
+          "releaseDate": "2026-11-05",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/86085/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Kensington_Pride.hap1_GWHFDNV00000000.1/GWHFDNV00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHFDNW00000000.1",
+          "assemblyName": "Kensington_Pride.hap2",
+          "scientificName": "Mangifera indica",
+          "level": "Draft genome in chromosome level",
+          "cultivar": "Kensington Pride",
+          "releaseDate": "2026-11-05",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/86086/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Kensington_Pride.hap2_GWHFDNW00000000.1/GWHFDNW00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        },
+        {
+          "accession": "GWHKEQV00000000.1",
+          "assemblyName": "Mango_ref",
+          "scientificName": "Mangifera indica",
+          "level": "Complete genome",
+          "cultivar": "tainong",
+          "releaseDate": "2026-10-14",
+          "repository": "NGDC Genome Warehouse",
+          "recordUrl": "https://ngdc.cncb.ac.cn/gwh/Assembly/139193/show",
+          "downloadUrl": "https://download.cncb.ac.cn/gwh/Plants/Mangifera_indica_Mango_ref_GWHKEQV00000000.1/GWHKEQV00000000.1.genome.fasta.gz",
+          "sourceType": "Direct submission"
+        }
+      ]
+    },
+    {
+      "key": "cashew",
+      "scientificName": "Anacardium occidentale",
+      "records": []
+    }
+  ]
+}
