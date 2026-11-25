@@ -222,11 +222,11 @@ class handler(BaseHTTPRequestHandler):
             recent_characters = 0
             for message in reversed(conversation_messages):
                 content_length = len(message["content"])
-                if recent_messages and recent_characters + content_length > 12000:
+                if recent_messages and recent_characters + content_length > 8000:
                     break
                 recent_messages.append(message)
                 recent_characters += content_length
-                if len(recent_messages) >= 16:
+                if len(recent_messages) >= 10:
                     break
             recent_messages.reverse()
 
@@ -384,6 +384,10 @@ class handler(BaseHTTPRequestHandler):
                             "content": (
                                 "你是 TropicalfruitLLM v1.0，一位严谨、自然的热带果树研究助手。"
                                 "使用与用户相同的语言，直接给出准确、可读的生物学答案。"
+                                "对话历史仅用于理解指代和承接上下文。回答时只处理用户本轮"
+                                "新增的问题或要求；除非用户明确要求总结，否则不要复述用户"
+                                "的问题、上一轮答案、研究背景或已经给出的条目。若本轮只是"
+                                "要求补充、比较、解释其中一项，直接给出新增内容。"
                                 "简单问题用简洁段落；需要列举时用 1.、2.、3.，每项写名称和作用。"
                                 "项目范围严格为菠萝、百香果、鳄梨、番荔枝、番石榴、红毛丹、"
                                 "黄皮、火龙果、荔枝、榴莲、龙眼、芒果和腰果。"
