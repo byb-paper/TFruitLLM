@@ -194,10 +194,14 @@ class handler(BaseHTTPRequestHandler):
             # messages supplied by browsers or older cached frontends so the
             # upstream chat template always receives the system message first.
             conversation_messages = [
-                message
+                {
+                    "role": message.get("role"),
+                    "content": str(message.get("content", "")).strip(),
+                }
                 for message in messages
                 if isinstance(message, dict)
                 and message.get("role") in {"user", "assistant"}
+                and str(message.get("content", "")).strip()
             ]
             if not any(
                 message.get("role") == "user"
@@ -209,6 +213,22 @@ class handler(BaseHTTPRequestHandler):
                     encode_json({"error": "A research question is required."}),
                 )
                 return
+
+            # Keep the recent conversation instead of forwarding only the
+            # latest question. Work backwards so follow-up questions retain
+            # their nearest context while staying within the model's context
+            # window. The final list remains in chronological order.
+            recent_messages = []
+            recent_characters = 0
+            for message in reversed(conversation_messages):
+                content_length = len(message["content"])
+                if recent_messages and recent_characters + content_length > 12000:
+                    break
+                recent_messages.append(message)
+                recent_characters += content_length
+                if len(recent_messages) >= 16:
+                    break
+            recent_messages.reverse()
 
             last_user_text = next(
                 (
@@ -372,11 +392,7 @@ class handler(BaseHTTPRequestHandler):
                                 "只陈述有把握的内容；没有可靠来源时不生成具体文献或数据库编号。"
                             ),
                         },
-                        next(
-                            message
-                            for message in reversed(conversation_messages)
-                            if message.get("role") == "user"
-                        ),
+                        *recent_messages,
                     ],
                     "temperature": min(
                         float(request_data.get("temperature", 0.2)), 0.2
